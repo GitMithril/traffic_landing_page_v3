@@ -3,12 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { GlareSurface } from "@/components/ui/glare-surface";
 
 const NAV_LINKS = [
   { href: "#work", label: "How we work" },
   { href: "#voices", label: "Client voices" },
   { href: "#pricing", label: "Pricing" },
 ];
+
+const EASE = "cubic-bezier(0.22,1,0.36,1)";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,10 +58,10 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[0.9rem] font-medium tracking-[-0.01em] transition-colors duration-300 ${
+              className={`group relative inline-block py-1 text-[0.9rem] font-medium tracking-[-0.01em] transition-colors duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:transition-transform after:duration-[420ms] after:ease-[cubic-bezier(0.22,1,0.36,1)] after:content-[''] hover:after:scale-x-100 ${
                 scrolled
-                  ? "text-[var(--color-ink-on-black-muted)] hover:text-white"
-                  : "text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]"
+                  ? "text-[var(--color-ink-on-black-muted)] after:bg-white hover:text-white"
+                  : "text-[var(--color-ink-muted)] after:bg-[var(--color-ink)] hover:text-[var(--color-ink)]"
               }`}
             >
               {link.label}
@@ -68,13 +71,15 @@ export function SiteHeader() {
 
         <Link
           href="#book"
-          className={`inline-flex items-center rounded-full px-5 py-2.5 text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors duration-300 ${
+          className={`group relative inline-flex items-center overflow-hidden rounded-full px-5 py-2.5 text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors duration-[340ms] ${
             scrolled
               ? "bg-[var(--color-accent-deep)] text-white hover:brightness-90"
               : "bg-[var(--color-surface-black)] text-[var(--color-ink-on-black)] hover:bg-[var(--color-accent-deep)] hover:text-white"
           }`}
+          style={{ transitionTimingFunction: EASE }}
         >
-          Book a call
+          <GlareSurface glareColor="#ffffff" glareOpacity={0.22} />
+          <span className="pointer-events-none">Book a call</span>
         </Link>
       </div>
     </header>

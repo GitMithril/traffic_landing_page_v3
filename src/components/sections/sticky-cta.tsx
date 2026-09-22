@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { GlareSurface } from "@/components/ui/glare-surface";
 
 export function StickyCta() {
   const [visible, setVisible] = useState(false);
@@ -24,7 +25,7 @@ export function StickyCta() {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-40 flex justify-center px-4 pb-4 transition-all duration-500 ease-out md:inset-x-auto md:right-6 md:bottom-6 md:px-0 md:pb-0"
+      className="fixed inset-x-0 bottom-0 z-40 flex justify-center px-4 pb-4 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] md:inset-x-auto md:right-6 md:bottom-6 md:px-0 md:pb-0"
       style={{
         opacity: show ? 1 : 0,
         transform: show ? "translateY(0)" : "translateY(0.75rem)",
@@ -38,9 +39,10 @@ export function StickyCta() {
         </span>
         <Link
           href="#book"
-          className="inline-flex shrink-0 items-center rounded-full bg-[var(--color-accent-deep)] px-4 py-2 text-[0.85rem] font-semibold text-white transition-colors duration-300 hover:brightness-90"
+          className="group relative inline-flex shrink-0 items-center overflow-hidden rounded-full bg-[var(--color-accent-deep)] px-4 py-2 text-[0.85rem] font-semibold text-white transition-[filter] duration-300 hover:brightness-90"
         >
-          Book a call
+          <GlareSurface glareColor="#ffffff" glareOpacity={0.22} />
+          <span className="pointer-events-none">Book a call</span>
         </Link>
         <button
           type="button"

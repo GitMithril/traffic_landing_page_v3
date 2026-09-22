@@ -1,4 +1,6 @@
 import Link from "next/link";
+import FadeContent from "@/components/FadeContent";
+import { GlareSurface } from "@/components/ui/glare-surface";
 
 export function ClosingCta() {
   return (
@@ -24,7 +26,7 @@ export function ClosingCta() {
       />
 
       <div className="relative mx-auto max-w-[90rem] px-6 md:px-10">
-        <div className="max-w-2xl">
+        <FadeContent className="max-w-2xl" blur duration={1200} delay={100} ease="power2.out" threshold={0.2}>
           <p className="text-[1.1rem] leading-[1.6] text-[var(--color-ink-on-black-muted)]">
             No account-manager telephone game.
             <br />
@@ -48,13 +50,16 @@ export function ClosingCta() {
           <div className="mt-12">
             <Link
               href="#book"
-              className="group relative inline-flex items-center gap-2.5 rounded-full bg-[var(--color-ink-on-black)] px-6 py-3.5 text-[0.95rem] font-semibold tracking-[-0.01em] text-[var(--color-surface-black)] transition-all duration-300 ease-out hover:bg-[var(--color-accent-deep)] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-accent)]"
+              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-ink-on-black)] px-6 py-3.5 text-[0.95rem] font-semibold tracking-[-0.01em] text-[var(--color-surface-black)] transition-[background-color,color,transform] duration-[340ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:bg-[var(--color-accent-deep)] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-accent)]"
             >
-              <span>Boost your conversion 3x in the next 30 days.</span>
+              <GlareSurface glareColor="#FF4400" glareOpacity={0.2} />
+              <span className="pointer-events-none">
+                Boost your conversion 3x in the next 30 days.
+              </span>
               <svg
                 viewBox="0 0 20 20"
                 fill="none"
-                className="h-[0.9em] w-[0.9em] shrink-0 transition-transform duration-300 ease-out group-hover:translate-x-0.5"
+                className="pointer-events-none h-[0.9em] w-[0.9em] shrink-0 transition-transform duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1"
                 aria-hidden
               >
                 <path
@@ -67,7 +72,7 @@ export function ClosingCta() {
               </svg>
             </Link>
           </div>
-        </div>
+        </FadeContent>
       </div>
     </section>
   );

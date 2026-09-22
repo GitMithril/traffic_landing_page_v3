@@ -1,5 +1,6 @@
 import GradientWaves from "@/components/GradientWaves";
 import { CtaButton } from "@/components/ui/cta-button";
+import FadeContent from "@/components/FadeContent";
 
 export function Hero() {
   return (
@@ -37,7 +38,14 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-center px-6 py-20 md:px-10 md:py-24">
-        <div className="max-w-3xl">
+        <FadeContent
+          className="max-w-3xl"
+          blur
+          duration={1100}
+          delay={80}
+          threshold={0.05}
+          ease="power2.out"
+        >
           <h1 className="max-w-[16ch] text-[clamp(2.5rem,5.6vw,4.75rem)] font-extrabold leading-[0.98] tracking-[-0.035em] text-[var(--color-ink)]">
             Stop managing five different people just to get one campaign out.
           </h1>
@@ -70,7 +78,7 @@ export function Hero() {
               short.
             </p>
           </div>
-        </div>
+        </FadeContent>
       </div>
     </section>
   );

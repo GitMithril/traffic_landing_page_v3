@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { CtaButton } from "@/components/ui/cta-button";
+import AnimatedContent from "@/components/AnimatedContent";
 
 const FEATURES: { text: string; bold?: string }[] = [
   { text: "Short-form video and static creative" },
@@ -29,6 +30,7 @@ export function Pricing() {
   return (
     <section id="pricing" className="w-full bg-[var(--color-surface)] py-24 md:py-32">
       <div className="mx-auto max-w-[90rem] px-6 md:px-10">
+        <AnimatedContent distance={22} duration={0.7} ease="power2.out" threshold={0.15}>
         <h2 className="max-w-[20ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
           Need consistent creative without building an in-house team?
         </h2>
@@ -66,11 +68,11 @@ export function Pricing() {
               {FEATURES.map((feature) => (
                 <li
                   key={feature.text}
-                  className="flex items-center gap-3 py-4 text-[1.05rem] text-[var(--color-ink)]"
+                  className="group flex items-center gap-3 py-4 text-[1.05rem] text-[var(--color-ink)] transition-[padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:pl-1.5"
                 >
                   <Check
                     aria-hidden
-                    className="h-[1.1rem] w-[1.1rem] shrink-0 text-[var(--color-accent)]"
+                    className="h-[1.1rem] w-[1.1rem] shrink-0 text-[var(--color-accent)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                     strokeWidth={2.5}
                   />
                   {renderFeature(feature)}
@@ -83,6 +85,7 @@ export function Pricing() {
             </div>
           </div>
         </div>
+        </AnimatedContent>
 
         <p className="mt-16 max-w-[50ch] text-[1rem] leading-[1.55] text-[var(--color-ink-muted)]">
           Need more than the Essentials? Full brand builds, websites and

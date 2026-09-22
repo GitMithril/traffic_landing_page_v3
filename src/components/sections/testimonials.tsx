@@ -1,4 +1,5 @@
 import QuoteFanCarousel from "@/components/ui/quote-fan-carousel";
+import FadeContent from "@/components/FadeContent";
 
 const TESTIMONIALS = [
   {
@@ -28,10 +29,12 @@ export function Testimonials() {
       className="w-full overflow-x-clip bg-[var(--color-surface-warm)] py-24 md:py-32"
     >
       <div className="mx-auto max-w-[90rem] px-6 md:px-10">
-        <h2 className="max-w-[18ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
-          The work should feel like your brand. Not your agency&rsquo;s
-          template.
-        </h2>
+        <FadeContent duration={700} ease="power2.out" threshold={0.2}>
+          <h2 className="max-w-[18ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
+            The work should feel like your brand. Not your agency&rsquo;s
+            template.
+          </h2>
+        </FadeContent>
       </div>
 
       <div className="mt-16 md:mt-20">

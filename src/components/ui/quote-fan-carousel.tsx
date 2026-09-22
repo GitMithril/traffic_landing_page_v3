@@ -62,7 +62,7 @@ function getSlotConfig(totalCards: number, slot: number) {
 }
 
 const ARROW_CLASSES =
-  "relative flex items-center justify-center rounded-full border border-[#1A1A1A]/12 bg-white text-[#1A1A1A]/50 cursor-pointer shrink-0 z-30 outline-none shadow-[0_4px_20px_rgba(10,10,10,0.08)] hover:border-[#FF4400]/50 hover:text-[#FF4400] active:opacity-70 transition-colors duration-300";
+  "relative flex items-center justify-center rounded-full border border-[#1A1A1A]/12 bg-white text-[#1A1A1A]/50 cursor-pointer shrink-0 z-30 outline-none shadow-[0_4px_20px_rgba(10,10,10,0.08)] transition-[color,border-color,transform] duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:border-[#FF4400]/50 hover:text-[#FF4400] active:translate-y-0 active:opacity-70";
 
 function initials(name: string) {
   return name

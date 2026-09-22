@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Check, X } from "lucide-react";
+import FadeContent from "@/components/FadeContent";
 
 const FIT: ReactNode[] = [
   "Need content consistently, not once every few months",
@@ -16,6 +17,7 @@ export function Qualification() {
   return (
     <section className="w-full bg-[var(--color-surface)] py-24 md:py-32">
       <div className="mx-auto max-w-[90rem] px-6 md:px-10">
+        <FadeContent blur duration={850} ease="power2.out" threshold={0.15}>
         <h2 className="max-w-[16ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
           Is Doomsday right for you?
         </h2>
@@ -27,10 +29,10 @@ export function Qualification() {
             </p>
             <ul className="mt-6 flex flex-col gap-5">
               {FIT.map((line, i) => (
-                <li key={i} className="flex items-start gap-3">
+                <li key={i} className="group flex items-start gap-3">
                   <span
                     aria-hidden
-                    className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]"
+                    className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                   >
                     <Check className="h-3.5 w-3.5" strokeWidth={2.25} />
                   </span>
@@ -59,6 +61,7 @@ export function Qualification() {
             </p>
           </div>
         </div>
+        </FadeContent>
       </div>
     </section>
   );
