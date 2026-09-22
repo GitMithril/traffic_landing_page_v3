@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-22T00:00:00Z",
+  "title": "Design System: Doomsday Studios",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Doomsday Orange",
+        "canonical": "#ff4400",
+        "tonalRamp": ["#2b0f08", "#5a1a0c", "#8f2410", "#c62f14", "#d8220c", "#ff4400", "#f4631e", "#ffb894"]
+      },
+      "accent-deep": {
+        "role": "primary",
+        "displayName": "Doomsday Orange Deep",
+        "canonical": "#d8220c",
+        "tonalRamp": ["#240804", "#4a0f08", "#79170c", "#a91e0f", "#d8220c", "#ef3813", "#f66b45", "#fbb09a"]
+      },
+      "accent-light": {
+        "role": "primary",
+        "displayName": "Doomsday Orange Light",
+        "canonical": "#f4631e",
+        "tonalRamp": ["#2c1206", "#5a250c", "#8f3a13", "#c74f1a", "#f4631e", "#f88347", "#fca877", "#fed3b7"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#1a1a1a", "#3a3a3a", "#5c5c5c", "#807f7f", "#a6a5a4", "#cfcecc", "#ece9e5", "#ffffff"]
+      },
+      "surface-warm": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#f7f6f4",
+        "tonalRamp": ["#1c1a18", "#3b3733", "#5c5751", "#807a72", "#a6a096", "#c9c3ba", "#e4e0d9", "#f7f6f4"]
+      },
+      "surface-black": {
+        "role": "neutral",
+        "displayName": "True Black",
+        "canonical": "#0a0a0a",
+        "tonalRamp": ["#000000", "#0a0a0a", "#1c1c1c", "#333333", "#4d4d4d", "#6b6b6b", "#8c8c8c", "#b0b0b0"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Near-Black Ink",
+        "canonical": "#1a1a1a",
+        "tonalRamp": ["#0a0a0a", "#1a1a1a", "#333333", "#4d4d4d", "#6b6b6b", "#8c8c8c", "#b0b0b0", "#d6d6d6"]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#6f6d72",
+        "tonalRamp": ["#242327", "#3a383d", "#555257", "#6f6d72", "#8c898e", "#aaa7ac", "#c9c7ca", "#e6e5e7"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e7e5e2",
+        "tonalRamp": ["#4a4844", "#6b6862", "#8f8b83", "#b3aea5", "#cfcbc4", "#e7e5e2", "#f2f1ef", "#fbfaf9"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Closing CTA headline only." },
+      "headline": { "displayName": "Headline", "purpose": "Section headlines and the hero H1." },
+      "title": { "displayName": "Title", "purpose": "Card/step titles inside services and process lists." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, held to 65-75ch measure." },
+      "label": { "displayName": "Label", "purpose": "Step numerals, stat labels, nav links." },
+      "pull-quote": { "displayName": "Pull-Quote", "purpose": "Playfair Display italic, testimonial quotes only." }
+    },
+    "shadows": [
+      { "name": "cta-hover-glow", "value": "0 0 0 1px var(--color-accent), 0 10px 30px -8px rgba(255,68,0,0.55)", "purpose": "Primary button hover/focus state." },
+      { "name": "sticky-bar-ambient", "value": "0 12px 40px -12px rgba(10,10,10,0.45)", "purpose": "Fixed sticky CTA bar at rest, since it floats above page flow." }
+    ],
+    "motion": [
+      { "name": "reduced-motion-gate", "value": "prefers-reduced-motion: reduce collapses animation/transition durations to 0.01ms globally", "purpose": "Accessibility gate applied globally in globals.css and specifically to the GradientWaves WebGL loop." },
+      { "name": "scroll-reveal", "value": "opacity/translate transition, duration 700ms, ease-out, staggered ~110-220ms per item", "purpose": "IntersectionObserver-driven entrance for problem, process, qualification, and booking-explainer list items." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid true-black pill CTA, orange glow on hover. Main conversion action across hero, pricing, booking explainer.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#book\"><span>Help me grow my business</span><svg class=\"ds-btn-arrow\" viewBox=\"0 0 20 20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 10h12M11 5l5 5-5 5\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.625rem; border-radius: 999px; padding: 0.875rem 1.5rem; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em; background: #0a0a0a; color: #f5f3f0; box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset; transition: box-shadow 0.3s ease-out, color 0.3s ease-out; text-decoration: none; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { box-shadow: 0 0 0 1px #ff4400, 0 10px 30px -8px rgba(255,68,0,0.55); color: #ffffff; } .ds-btn-primary:focus-visible { outline: 2px solid #ff4400; outline-offset: 3px; } .ds-btn-arrow { height: 0.9em; width: 0.9em; flex-shrink: 0; transition: transform 0.3s ease-out; } .ds-btn-primary:hover .ds-btn-arrow { transform: translateX(0.125rem); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Ghost/secondary pill CTA with hairline border, used for lower-commitment actions.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#pricing\"><span>See If We're a Fit</span><svg class=\"ds-btn-arrow\" viewBox=\"0 0 20 20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 10h12M11 5l5 5-5 5\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.625rem; border-radius: 999px; padding: 0.875rem 1.5rem; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em; background: transparent; color: #1a1a1a; border: 1px solid #e7e5e2; transition: border-color 0.3s ease-out, color 0.3s ease-out; text-decoration: none; } .ds-btn-outline:hover { border-color: #ff4400; color: #d8220c; } .ds-btn-outline:focus-visible { outline: 2px solid #ff4400; outline-offset: 3px; }"
+    },
+    {
+      "name": "Quote Card",
+      "kind": "card",
+      "refersTo": "quote-card",
+      "description": "True-black testimonial card with brand-gradient wash, Playfair Display italic quote, initials avatar. The system's one card shape.",
+      "html": "<figure class=\"ds-quote-card\"><span class=\"ds-quote-mark\">&ldquo;</span><blockquote class=\"ds-quote-text\">Working with Doomsday changed how consistent our brand feels online.</blockquote><figcaption class=\"ds-quote-caption\"><span class=\"ds-quote-avatar\">VP</span><span class=\"ds-quote-names\"><span class=\"ds-quote-name\">Victor</span><span class=\"ds-quote-role\">CEO, Vix Protection</span></span></figcaption></figure>",
+      "css": ".ds-quote-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; border-radius: 1.75rem; border: 1px solid rgba(255,255,255,0.1); background: radial-gradient(120% 140% at 12% -10%, #D8220C 0%, #FF4400 42%, transparent 72%), #0a0a0a; padding: 2rem; color: #ffffff; width: 16rem; height: 22rem; } .ds-quote-mark { font-family: var(--font-serif, Georgia, serif); font-style: italic; font-size: 3rem; line-height: 1; color: rgba(255,255,255,0.25); } .ds-quote-text { font-family: var(--font-serif, Georgia, serif); font-style: italic; font-size: 1.05rem; line-height: 1.35; margin-top: -1rem; flex: 1; } .ds-quote-caption { display: flex; align-items: center; gap: 0.75rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1rem; margin-top: 1.5rem; } .ds-quote-avatar { display: flex; height: 2.5rem; width: 2.5rem; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); font-size: 0.75rem; font-weight: 600; } .ds-quote-name { display: block; font-size: 0.875rem; font-weight: 600; } .ds-quote-role { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.6); }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed header, transparent over hero, fills true-black on scroll with inverted wordmark.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-header-brand\" href=\"#top\">Doomsday Studios</a><nav class=\"ds-header-nav\"><a href=\"#work\">How we work</a><a href=\"#voices\">Client voices</a><a href=\"#pricing\">Pricing</a></nav><a class=\"ds-header-cta\" href=\"#book\">Book a call</a></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; padding: 0 1.5rem; background: transparent; transition: background-color 0.5s; } .ds-header.ds-header--scrolled { background: #0a0a0a; } .ds-header-brand { font-weight: 700; color: #1a1a1a; text-decoration: none; } .ds-header--scrolled .ds-header-brand { color: #f5f3f0; } .ds-header-nav { display: flex; gap: 2rem; } .ds-header-nav a { font-size: 0.9rem; font-weight: 500; letter-spacing: -0.01em; color: #6f6d72; text-decoration: none; transition: color 0.3s; } .ds-header-nav a:hover { color: #1a1a1a; } .ds-header-cta { border-radius: 999px; padding: 0.625rem 1.25rem; font-size: 0.85rem; font-weight: 600; background: #0a0a0a; color: #f5f3f0; text-decoration: none; transition: background-color 0.3s; } .ds-header-cta:hover { background: #d8220c; color: #ffffff; }"
+    },
+    {
+      "name": "Pricing Feature List",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Divided checklist row used in pricing and qualification, orange checkmark in a circular chip.",
+      "html": "<ul class=\"ds-feature-list\"><li class=\"ds-feature-item\"><span class=\"ds-feature-check\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><polyline points=\"20 6 9 17 4 12\"/></svg></span>Short-form video and static creative</li></ul>",
+      "css": ".ds-feature-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid #e7e5e2; } .ds-feature-item { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 0; border-top: 1px solid #e7e5e2; font-size: 1.05rem; color: #1a1a1a; } .ds-feature-item:first-child { border-top: none; } .ds-feature-check { display: flex; height: 1.1rem; width: 1.1rem; flex-shrink: 0; color: #ff4400; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Unbroken Line",
+    "overview": "Doomsday's landing page argues one connected team over a disconnected vendor stack, and the design carries that argument structurally: a single hairline rule runs through the services list, a single accent-colored progress line fills through the process steps, and every section shares the same warm-white/near-black/brand-orange register with no visual seams between them. The register is editorial and restrained — warm-white paper grounds, near-black ink, hairline dividers, flat surfaces — with the brand gradient (#D8220C → #FF4400 → #F4631E) deployed at full commitment only where it is structurally earned: the hero's GradientWaves field, testimonial-card washes, and the closing CTA band's radial glow. True black (#0A0A0A) is reserved for primary buttons, the nav's scrolled state, and the full-bleed closing band — never as the page's resting background.\n\nThis is a code-led, no-comp build: the direction contract pinned palette, mode, typography, and section order before any layout decision, leaving composition (not identity) as the open variable. A finish-review pass removed one violation before ship — a generic gray eyebrow/kicker above the hero headline — replacing it with the ICP claim woven directly into the hero's body copy. That is not a system rule to preserve going forward; it is a defect the build avoided, and no kicker/eyebrow pattern exists anywhere in the shipped surfaces.",
+    "keyCharacteristics": [
+      "Warm-white paper grounds (#FFFFFF / #F7F6F4) with near-black ink (#1A1A1A), never pure black for body text",
+      "Brand gradient carried at full saturation only in the hero canvas, testimonial-card washes, and the closing CTA glow — never as gradient text",
+      "True black (#0A0A0A) reserved structurally: primary buttons, header-on-scroll, closing CTA band",
+      "Flat, editorial register: hairline 1px dividers do the separating work; no drop-shadow card scaffolding",
+      "Inter (500–900) for every heading and UI element; Playfair Display italic reserved exclusively for testimonial pull-quotes"
+    ],
+    "rules": [
+      { "name": "The Reserved Black Rule", "body": "True black (#0a0a0a) is not a background default; it appears only at three structural points (primary buttons, header once scrolled, the closing full-bleed band). Everywhere else the ground is warm white or warm paper.", "section": "colors" },
+      { "name": "The No-Gradient-Text Rule", "body": "The brand gradient renders as a field, wash, or glow — never as a text-fill effect. Confirmed by the direction contract and consistent across every shipped section.", "section": "colors" },
+      { "name": "The One Serif Rule", "body": "Playfair Display appears in exactly one place — testimonial pull-quotes inside the quote-fan-carousel. It never appears in a headline, label, or button.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Shadow appears only on the primary CTA's hover/focus state and on the one element that floats above page flow (sticky CTA bar).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do alternate white (#ffffff) and warm-paper (#f7f6f4) backgrounds section-to-section as the only separator; don't add a border or shadow at the seam.",
+      "Do run a single hairline rule or accent progress-line through any sequential/ordered list of items (services, process) rather than boxing each item in its own card.",
+      "Do hold body paragraph measure to 65-75ch.",
+      "Do reserve Playfair Display italic exclusively for quoted client language.",
+      "Do keep the brand gradient as a field/wash/glow (hero canvas, quote-card wash, closing-band glow), never as a gradient-clipped headline.",
+      "Do gate any WebGL/animated background loop behind prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't use a gray eyebrow/kicker label above a headline. The one instance drafted for the hero was removed in finish review and folded into body copy; the pattern is not part of this system.",
+      "Don't add drop-shadow card scaffolding to services, process, pricing, or qualification content — this system separates content with tonal backgrounds and hairlines, not elevation.",
+      "Don't use true black (#0a0a0a) as a section's resting background outside the three structural placements (buttons, scrolled nav, closing band).",
+      "Don't introduce a same-size icon-over-heading card grid for the services/discipline list; the connecting-line treatment is the confirmed replacement for the generic four-panel agency layout this build is arguing against."
+    ]
+  }
+}
