@@ -1,5 +1,6 @@
 import GradientWaves from "@/components/GradientWaves";
 import { CtaButton } from "@/components/ui/cta-button";
+import { HeroMediaStack } from "@/components/ui/hero-media-stack";
 import FadeContent from "@/components/FadeContent";
 
 export function Hero() {
@@ -37,7 +38,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(100deg,#ffffff_0%,#ffffff_34%,rgba(255,255,255,0.55)_52%,rgba(255,255,255,0.08)_72%)]"
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-center px-6 py-20 md:px-10 md:py-24">
+      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-center gap-14 px-6 py-20 md:px-10 md:py-24 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
         <FadeContent
           className="max-w-3xl"
           blur
@@ -78,6 +79,17 @@ export function Hero() {
               short.
             </p>
           </div>
+        </FadeContent>
+
+        <FadeContent
+          className="flex justify-center lg:justify-end"
+          blur
+          duration={1100}
+          delay={260}
+          threshold={0.05}
+          ease="power2.out"
+        >
+          <HeroMediaStack />
         </FadeContent>
       </div>
     </section>

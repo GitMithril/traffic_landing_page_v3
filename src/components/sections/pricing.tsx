@@ -223,10 +223,12 @@ export function Pricing() {
               </p>
 
               <div className="mt-8 flex items-center gap-8">
-                <Link href="#book" className={TEXT_LINK}>
-                  select plan
-                </Link>
-                <Link href="#book" className={TEXT_LINK}>
+                <Link
+                  href="https://www.doomsday.studio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={TEXT_LINK}
+                >
                   quick call
                 </Link>
               </div>
