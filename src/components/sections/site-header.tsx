@@ -7,7 +7,7 @@ import { GlareSurface } from "@/components/ui/glare-surface";
 
 const NAV_LINKS = [
   { href: "#work", label: "How we work" },
-  { href: "#voices", label: "Client voices" },
+  { href: "#voices", label: "Partner voices" },
   { href: "#pricing", label: "Pricing" },
 ];
 
