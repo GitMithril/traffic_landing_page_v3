@@ -1,19 +1,22 @@
 import Link from "next/link";
 import FadeContent from "@/components/FadeContent";
 import { GlareSurface } from "@/components/ui/glare-surface";
+import { SlidingGallery } from "@/components/ui/sliding-gallery";
 
 export function ClosingCta() {
   return (
     <section
       id="book"
-      className="relative isolate w-full overflow-hidden bg-[var(--color-surface-black)] py-28 md:py-36"
+      className="relative isolate w-full overflow-hidden bg-[var(--color-surface-black)] pt-28 pb-24 md:pt-36 md:pb-32"
     >
+      {/* One continuous glow field spanning the whole merged section —
+          no seam between the CTA and the work strip below it. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 55% at 78% 20%, rgba(255,68,0,0.28) 0%, rgba(216,34,12,0.14) 45%, transparent 75%)",
+            "radial-gradient(60% 42% at 78% 8%, rgba(255,68,0,0.26) 0%, rgba(216,34,12,0.12) 45%, transparent 75%)",
         }}
       />
       <div
@@ -21,7 +24,15 @@ export function ClosingCta() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(45% 40% at 12% 92%, rgba(255,68,0,0.16) 0%, transparent 70%)",
+            "radial-gradient(55% 38% at 8% 42%, rgba(255,68,0,0.18) 0%, rgba(216,34,12,0.09) 42%, transparent 74%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(50% 34% at 18% 76%, rgba(255,68,0,0.14) 0%, transparent 70%)",
         }}
       />
 
@@ -74,6 +85,27 @@ export function ClosingCta() {
           </div>
         </FadeContent>
       </div>
+
+      <FadeContent
+        className="relative mt-24 md:mt-32"
+        duration={700}
+        ease="power2.out"
+        threshold={0.2}
+      >
+        <div className="mx-auto max-w-[90rem] px-6 text-center md:px-10">
+          <h2 className="mx-auto max-w-[20ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink-on-black)]">
+            A body of work always in motion.
+          </h2>
+          <p className="mx-auto mt-6 max-w-[46ch] text-[1.05rem] leading-[1.55] text-[var(--color-ink-on-black-muted)]">
+            Real campaign stills land here as work ships. For now, this strip
+            marks the space they&rsquo;ll fill.
+          </p>
+        </div>
+
+        <div className="mt-14 md:mt-16">
+          <SlidingGallery />
+        </div>
+      </FadeContent>
     </section>
   );
 }

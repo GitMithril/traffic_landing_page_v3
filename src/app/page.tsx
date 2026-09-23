@@ -4,7 +4,6 @@ import { MetricsBar } from "@/components/sections/metrics-bar";
 import { Problem } from "@/components/sections/problem";
 import { HowWeWork } from "@/components/sections/how-we-work";
 import { Testimonials } from "@/components/sections/testimonials";
-import { WorkShowcase } from "@/components/sections/work-showcase";
 import { Pricing } from "@/components/sections/pricing";
 import { Qualification } from "@/components/sections/qualification";
 import { BookingExplainer } from "@/components/sections/booking-explainer";
@@ -25,7 +24,6 @@ export default function Home() {
         <Qualification />
         <BookingExplainer />
         <ClosingCta />
-        <WorkShowcase />
       </main>
       <StickyCta />
     </>
