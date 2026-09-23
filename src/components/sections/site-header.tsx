@@ -12,6 +12,7 @@ const NAV_LINKS = [
 ];
 
 const EASE = "cubic-bezier(0.22,1,0.36,1)";
+const MORPH = `transition-all duration-[850ms] ease-[cubic-bezier(0.16,1,0.3,1)]`;
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,13 +26,17 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ${
-        scrolled
-          ? "border-b border-white/10 bg-[var(--color-surface-black)]/75 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+      className={`fixed z-50 ${MORPH} ${
+        scrolled ? "inset-x-3 top-3 sm:inset-x-4 sm:top-4" : "inset-x-0 top-0"
       }`}
     >
-      <div className="mx-auto flex h-[4.5rem] max-w-[90rem] items-center justify-between px-6 md:px-10">
+      <div
+        className={`mx-auto flex w-full items-center justify-between border ${MORPH} ${
+          scrolled
+            ? "h-14 max-w-4xl rounded-full border-white/10 bg-[var(--color-surface-black)]/75 px-5 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-md"
+            : "h-[4.5rem] max-w-[90rem] rounded-none border-transparent bg-transparent px-6 shadow-none backdrop-blur-none md:px-10"
+        }`}
+      >
         <Link href="#top" className="flex items-center gap-2.5">
           <Image
             src="/doomsday-mark.png"
@@ -71,7 +76,7 @@ export function SiteHeader() {
 
         <Link
           href="#book"
-          className={`group relative inline-flex items-center overflow-hidden rounded-full px-5 py-2.5 text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors duration-[340ms] ${
+          className={`group relative inline-flex shrink-0 items-center overflow-hidden rounded-full px-5 py-2.5 text-[0.85rem] font-semibold tracking-[-0.01em] transition-colors duration-[340ms] ${
             scrolled
               ? "bg-[var(--color-accent-deep)] text-white hover:brightness-90"
               : "bg-[var(--color-surface-black)] text-[var(--color-ink-on-black)] hover:bg-[var(--color-accent-deep)] hover:text-white"
