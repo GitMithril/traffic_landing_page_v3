@@ -33,7 +33,7 @@ export function StickyCta() {
       }}
       aria-hidden={!show}
     >
-      <div className="flex w-full max-w-sm items-center gap-3 rounded-full border border-[var(--color-line-on-black)] bg-[var(--color-surface-black)] py-2 pl-5 pr-2 shadow-[0_12px_40px_-12px_rgba(10,10,10,0.45)] md:w-auto">
+      <div className="flex w-full max-w-sm items-center gap-3 rounded-full border border-[var(--color-line-on-black)] bg-[var(--color-surface-black)]/75 py-2 pl-5 pr-2 shadow-[0_12px_40px_-12px_rgba(10,10,10,0.45)] backdrop-blur-md md:w-auto">
         <span className="flex-1 text-[0.85rem] font-medium text-[var(--color-ink-on-black)] md:flex-none">
           Ready to grow?
         </span>

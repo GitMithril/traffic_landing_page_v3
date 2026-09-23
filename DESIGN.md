@@ -44,9 +44,10 @@ typography:
     fontWeight: 600
     letterSpacing: "normal"
   pull-quote:
-    fontFamily: "var(--font-serif)"
+    fontFamily: "var(--font-sans)"
     fontSize: "1.1rem"
-    fontWeight: 400
+    fontWeight: 500
+    fontStyle: "italic"
     lineHeight: 1.35
     letterSpacing: "normal"
 rounded:
@@ -80,6 +81,11 @@ components:
     textColor: "#ffffff"
     rounded: "{rounded.card}"
     padding: "1.75rem"
+  gradient-wash-card:
+    backgroundColor: "{colors.surface-black}"
+    textColor: "#ffffff"
+    rounded: "{rounded.card}"
+    padding: "2rem"
 ---
 
 # Design System: Doomsday Studios
@@ -88,16 +94,18 @@ components:
 
 **Creative North Star: "The Unbroken Line"**
 
-Doomsday's landing page argues one connected team over a disconnected vendor stack, and the design carries that argument structurally: a single hairline rule runs through the services list, a single accent-colored progress line fills through the process steps, and every section shares the same warm-white/near-black/brand-orange register with no visual seams between them. The register is editorial and restrained — warm-white paper grounds, near-black ink, hairline dividers, flat surfaces — with the brand gradient (`#D8220C → #FF4400 → #F4631E`) deployed at full commitment only where it is structurally earned: the hero's GradientWaves field, testimonial-card washes, and the closing CTA band's radial glow. True black (`#0A0A0A`) is reserved for primary buttons, the nav's scrolled state, and the full-bleed closing band — never as the page's resting background.
+Doomsday's landing page argues one connected team over a disconnected vendor stack, and the design carries that argument structurally: a single hairline rule runs through the services list, a single accent-colored progress line fills through the process steps, and every section shares the same warm-white/near-black/brand-orange register with no visual seams between them. The register is editorial and restrained — warm-white paper grounds, near-black ink, hairline dividers, flat surfaces — with the brand gradient (`#D8220C → #FF4400 → #F4631E`) deployed at full commitment only where it is structurally earned: the hero's GradientWaves field, dark gradient-wash cards (testimonials, qualification, pricing portrait), the hero's photo marquee, and the closing CTA band's radial glow. True black (`#0A0A0A`) is reserved for primary buttons, the nav's scrolled state, gradient-wash card grounds, and the full-bleed closing band — never as the page's resting section background.
 
 This is a code-led, no-comp build: the direction contract pinned palette, mode, typography, and section order before any layout decision, leaving composition (not identity) as the open variable. A finish-review pass removed one violation before ship — a generic gray eyebrow/kicker above the hero headline — replacing it with the ICP claim woven directly into the hero's body copy. That is not a system rule to preserve going forward; it is a defect the build avoided, and no kicker/eyebrow pattern exists anywhere in the shipped surfaces.
 
+Since the first build, the typography system was simplified to a single Inter-only voice (Playfair Display was removed entirely, including from testimonial quotes), and the dark gradient-wash card — originally scoped to testimonials only — was confirmed as a reusable content pattern now shared by testimonials, the qualification "fit" card, and the pricing portrait panel. A new hero photo-marquee and a rebuilt 3-tier pricing selector both reuse this same placeholder-portrait treatment (radial brand-gradient wash over true black, centered brand mark, no fabricated photography) rather than inventing a new visual language.
+
 **Key Characteristics:**
 - Warm-white paper grounds (`#FFFFFF` / `#F7F6F4`) with near-black ink (`#1A1A1A`), never pure black for body text
-- Brand gradient carried at full saturation only in the hero canvas, testimonial-card washes, and the closing CTA glow — never as gradient text
-- True black (`#0A0A0A`) reserved structurally: primary buttons, header-on-scroll, closing CTA band
-- Flat, editorial register: hairline 1px dividers do the separating work: no drop-shadow card scaffolding
-- Inter (500–900) for every heading and UI element; Playfair Display italic reserved exclusively for testimonial pull-quotes
+- Brand gradient carried at full saturation only in the hero canvas, dark gradient-wash cards, and the closing CTA glow — never as gradient text
+- True black (`#0A0A0A`) reserved structurally: primary buttons, header-on-scroll, gradient-wash card grounds, closing CTA band
+- Flat, editorial register: hairline 1px dividers do the separating work; no drop-shadow card scaffolding outside the gradient-wash card family
+- Inter is the sole typeface (400–800, including real italic 400–500) for every heading, UI element, and quoted/emphasized text — no second typeface
 
 ## Colors
 
@@ -105,32 +113,31 @@ A warm-white editorial base with true black and a single warm-orange gradient he
 
 ### Primary
 - **Doomsday Orange** (`#ff4400`): the accent token. Used for interactive accents — focus rings, selection color, hover states, small dot/rule markers, the "3x" emphasis word, checkmarks.
-- **Doomsday Orange Deep** (`#d8220c`): the deeper gradient stop. Used for emphasized inline text (execution problem, connected-work claim), scrolled-nav CTA fill, sticky-bar CTA fill, process-step numerals.
-- **Doomsday Orange Light** (`#f4631e`): the lightest gradient stop, used only within the three-stop brand gradient (GradientWaves crest color, quote-card wash, closing-band radial), never standalone as a UI color.
+- **Doomsday Orange Deep** (`#d8220c`): the deeper gradient stop. Used for emphasized inline text (execution problem, connected-work claim), scrolled-nav CTA fill, sticky-bar CTA fill, process-step numerals, pricing feature checkmarks.
+- **Doomsday Orange Light** (`#f4631e`): the lightest gradient stop, used only within the three-stop brand gradient (GradientWaves crest color, gradient-wash card washes, closing-band radial), never standalone as a UI color.
 
 ### Neutral
 - **Paper White** (`#ffffff`): primary section background (hero, problem, pricing).
-- **Warm Paper** (`#f7f6f4`): alternating section background (metrics, services, testimonials, booking explainer) — the tonal shift that separates sections without a border or shadow.
+- **Warm Paper** (`#f7f6f4`): alternating section background (metrics, services, testimonials, booking explainer, qualification's not-fit card) — the tonal shift that separates sections without a border or shadow.
 - **Near-Black Ink** (`#1a1a1a`): primary text color on light surfaces. Never pure `#000`.
 - **Muted Ink** (`#6f6d72`): secondary/supporting text on light surfaces (subheads, captions, stat labels).
-- **True Black** (`#0a0a0a`): structural black — primary button fill, header-on-scroll fill, closing CTA band background.
+- **True Black** (`#0a0a0a`): structural black — primary button fill, header-on-scroll fill, gradient-wash card ground, closing CTA band background.
 - **Ink on Black** (`#f5f3f0`): primary text on the true-black surfaces.
 - **Muted Ink on Black** (`#a9a6a3`): secondary text on true-black surfaces.
 - **Hairline** (`#e7e5e2`): all dividers, borders, and the services/process rule lines on light surfaces.
 - **Hairline on Black** (`rgba(245,243,240,0.14)`): dividers on true-black surfaces (sticky CTA bar border).
 
 ### Named Rules
-**The Reserved Black Rule.** True black (`#0a0a0a`) is not a background default; it appears only at three structural points (primary buttons, header once scrolled, the closing full-bleed band). Everywhere else the ground is warm white or warm paper.
+**The Reserved Black Rule.** True black (`#0a0a0a`) is not a background default; it appears only at structural points (primary buttons, header once scrolled, gradient-wash cards, the closing full-bleed band). Everywhere else the ground is warm white or warm paper.
 
 **The No-Gradient-Text Rule.** The brand gradient renders as a field, wash, or glow — never as a text-fill effect. Confirmed by the direction contract and consistent across every shipped section (closing headline uses solid ink-on-black, not a gradient clip).
 
 ## Typography
 
-**Display Font:** Inter (variable, weights 500–900), with ui-sans-serif/system-ui fallback
+**Display Font:** Inter (variable, weights 400–800, `normal` and `italic` styles loaded via `next/font/google`), with ui-sans-serif/system-ui fallback
 **Body Font:** Inter, same stack
-**Accent Serif:** Playfair Display italic, with ui-serif/Georgia fallback — testimonial pull-quotes only
 
-**Character:** A confident, heavy-weight grotesque (Inter at 700–800) carries every headline and UI label; Playfair Display italic is a single deliberate accent voice, reserved for quoted client language so it reads as a distinct "other person's words" register against Inter's house voice.
+**Character:** A confident, heavy-weight grotesque (Inter at 700–800) carries every headline and UI label; Inter's own italic (400–500) is the system's one emphasis register, used for quoted client language so it still reads as a distinct "other person's words" voice without introducing a second typeface.
 
 ### Hierarchy
 - **Display** (800, `clamp(2.75rem, 6vw, 5.25rem)`, line-height 0.98, tracking -0.035em): closing CTA headline only.
@@ -138,29 +145,30 @@ A warm-white editorial base with true black and a single warm-orange gradient he
 - **Title** (700, ~1.2–1.4rem, tight leading): card/step titles (service discipline names, process step titles).
 - **Body** (400, ~1–1.15rem, line-height 1.55, 65–75ch measure): paragraph copy; hero sub-paragraph is explicitly held to the 65–75ch contract measure (`max-w-[70ch]`).
 - **Label** (600, ~0.85–0.95rem, tabular-nums where numeric): step numerals (01–04), stat labels, nav links.
-- **Pull-quote** (400 italic, Playfair Display, ~1.05–1.15rem, line-height ~1.35): testimonial quotes only, always on the true-black quote-card wash.
+- **Pull-quote** (Inter, 400–500 real italic, ~1.05–1.15rem, line-height ~1.35): testimonial quotes only, always on the true-black gradient-wash card.
 
 ### Named Rules
-**The One Serif Rule.** Playfair Display appears in exactly one place — testimonial pull-quotes inside the quote-fan-carousel. It never appears in a headline, label, or button.
+**The Inter-Only Rule.** Inter is the only typeface in the system — display, body, label, and quoted/pull-quote text all resolve to the same family, differentiated by weight, size, and (for quotes only) real italic style. There is no second/accent typeface anywhere in the build.
 
 ## Layout
 
-Single max-width container (`max-w-[90rem]`, `px-6` mobile / `px-10` desktop) reused across every section. Sections alternate between white and warm-paper backgrounds as the only tonal separator between them — no borders or shadows mark section boundaries. Vertical rhythm is generous and consistent: `py-20`–`py-24` for compact sections (hero, metrics), `py-24`–`py-32` for content sections. Hairline horizontal or vertical rules (`border-[var(--color-line)]`) are the recurring structural device that threads sections together (metrics-bar stat dividers, services' single connecting rule, process's vertical progress line, pricing's divider, qualification's column divider) — this is the literal expression of the "unbroken line" thesis. Two-column splits (`md:grid-cols-[1.1fr_0.9fr]` or similar) appear in pricing and qualification for content/detail pairs; the services and process lists use a single continuous line with items hung off it rather than a card grid. Mobile collapses all multi-column layouts to a single stacked column with the connecting line reorienting from horizontal to vertical.
+Single max-width container (`max-w-[90rem]`, `px-6` mobile / `px-10` desktop) reused across every section. Sections alternate between white and warm-paper backgrounds as the only tonal separator between them — no borders or shadows mark section boundaries. Vertical rhythm is generous and consistent: `py-20`–`py-24` for compact sections (hero, metrics), `py-24`–`py-32` for content sections. Hairline horizontal or vertical rules (`border-[var(--color-line)]`) are the recurring structural device that threads sections together (metrics-bar stat dividers, services' single connecting rule, process's vertical progress line, pricing's divider, qualification's column divider) — this is the literal expression of the "unbroken line" thesis. Two/three-column splits (`md:grid-cols-[1.1fr_0.9fr]`, or pricing's `md:grid-cols-[0.85fr_1.15fr_1fr]` portrait/switcher/checklist split) appear in pricing and qualification for content/detail pairs; the services and process lists use a single continuous line with items hung off it rather than a card grid. Mobile collapses all multi-column layouts to a single stacked column with the connecting line reorienting from horizontal to vertical.
 
 ## Elevation & Depth
 
-The system is flat by explicit contract: no drop-shadow card scaffolding. Depth is conveyed through tonal layering (white vs. warm-paper section backgrounds, true-black bands) and hairline dividers, not shadows. The two confirmed exceptions are functional, not decorative: the primary CTA button gets a soft orange glow shadow only on hover/focus (a state response, not a resting elevation), and the sticky CTA bar — a floating, fixed-position element that must read as detached from page flow — carries a soft ambient shadow at rest.
+The system is flat by explicit contract: no drop-shadow card scaffolding on standard content sections. Depth is conveyed through tonal layering (white vs. warm-paper section backgrounds, true-black bands) and hairline dividers, not shadows. Confirmed exceptions are functional or structural, not decorative: the primary CTA button gets a soft orange glow shadow only on hover/focus (a state response, not a resting elevation); the sticky CTA bar — a floating, fixed-position element that must read as detached from page flow — carries a soft ambient shadow at rest; and the hero photo-marquee's rotated placeholder cards carry a soft ambient shadow, since they represent physically stacked photo prints rather than flat page content.
 
 ### Shadow Vocabulary
 - **CTA hover glow** (`box-shadow: 0 0 0 1px var(--color-accent), 0 10px 30px -8px rgba(255,68,0,0.55)`): primary button hover/focus state only.
 - **Sticky bar ambient** (`box-shadow: 0 12px 40px -12px rgba(10,10,10,0.45)`): the fixed sticky CTA bar at rest, justified by its floating/overlaid position.
+- **Marquee card ambient** (`box-shadow: 0 18px 40px -16px rgba(10,10,10,0.35)`): hero photo-marquee's rotated placeholder cards, justified by the stacked-photo-print silhouette they represent.
 
 ### Named Rules
-**The Flat-By-Default Rule.** Surfaces are flat at rest. Shadow appears only on the primary CTA's hover/focus state and on the one element that floats above page flow (sticky CTA bar).
+**The Flat-By-Default Rule.** Surfaces are flat at rest. Shadow appears only on the primary CTA's hover/focus state and on elements that represent something physically detached from the page plane (sticky CTA bar, marquee photo cards).
 
 ## Shapes
 
-Two recurring silhouettes: the full pill (`rounded-full` / 999px) for every clickable action (buttons, sticky-bar dismiss, carousel arrows, process-step dots), and a soft large rounding (`1.75rem`) reserved for the testimonial quote cards, the system's one card-shaped object. Everything else is rectilinear with no radius — section containers, dividers, the services/process line structure. Borders are hairline (1px, `#e7e5e2` on light surfaces, low-opacity white on black surfaces) and never decorative-weight.
+Two recurring silhouettes: the full pill (`rounded-full` / 999px) for every clickable action (buttons, sticky-bar dismiss, carousel arrows, process-step dots, pricing's tab switcher), and a soft large rounding (`1.75rem`) reserved for the gradient-wash card family (testimonial quote cards, qualification's fit card, pricing's portrait panel) plus its lighter qualification not-fit counterpart. The hero marquee's placeholder cards use a slightly smaller rounding (`1rem`) consistent with being a smaller repeated unit, not the primary card shape. Everything else is rectilinear with no radius — section containers, dividers, the services/process line structure. Borders are hairline (1px, `#e7e5e2` on light surfaces, low-opacity white on black surfaces) and never decorative-weight.
 
 ## Components
 
@@ -169,25 +177,32 @@ Two recurring silhouettes: the full pill (`rounded-full` / 999px) for every clic
 - **Primary (solid):** true-black fill (`#0a0a0a`), `ink-on-black` text; hover adds a 1px orange ring plus a soft orange drop shadow and shifts text to white. Used for the main conversion action everywhere it appears (hero, pricing, booking explainer, closing CTA).
 - **Outline/ghost:** transparent fill, hairline border, ink text; hover shifts border and text to orange-deep. Used for secondary actions (services' "See If We're a Fit").
 - **On-black variant (closing CTA):** inverted — `ink-on-black` fill, true-black text, hover flips to orange-deep fill with white text.
+- **Pricing tab switcher:** a pill-shaped segmented control (hairline-bordered pill container, `rounded-full p-1`); the active tab fills true-black with white text, inactive tabs are muted-ink text with no fill.
 
-### Cards / Containers
-- **Corner Style:** `1.75rem` radius, used only by the testimonial quote card.
-- **Background:** true black (`#0a0a0a`) with a radial brand-gradient wash layered at ~90% opacity plus a dark scrim, so the gradient reads as light hitting a black surface rather than a flat gradient fill.
-- **Shadow Strategy:** none on the card itself; depth comes from the fan-carousel's rotation/scale/z-index staging (GSAP), not from shadow.
+### Cards / Containers — the Gradient-Wash Card (signature pattern)
+- **Corner Style:** `1.75rem` radius.
+- **Background:** true black (`#0a0a0a`) with a radial brand-gradient wash (`#D8220C → #FF4400`, transparent by ~70–78%) positioned toward the top-left/top, plus a dark scrim (`#0A0A0A` at ~45–60% opacity) over it, so the gradient reads as light hitting a black surface rather than a flat gradient fill.
 - **Border:** hairline white-at-10%-opacity.
-- **Internal Padding:** `1.75rem` (mobile) / `2rem` (sm+).
+- **Internal Padding:** `1.75rem`–`2rem` depending on context (mobile/sm+).
+- **Reuse:** this is a system-level pattern, not a testimonial-only device. It appears in the testimonial quote card (fan carousel), the qualification section's "who this is for" fit card, and the pricing section's per-tier portrait panel. All three share the same visual grammar: true-black ground, top-anchored gradient wash, scrim, centered or top-aligned content. The pricing portrait panel and hero photo-marquee currently render this pattern as a *placeholder* — a centered brand mark + "Portrait reserved for {name}" label — standing in for real per-tier photography that has not been supplied yet; the underlying gradient/mark values live in one shared source (`src/lib/plan-portraits.ts`) so swapping in real images later is a single edit.
 
-### Iconography
-Inline SVGs only (no icon font, no `<img>`), used sparingly and functionally: a directional arrow inside CTA buttons, chevrons on the testimonial carousel's prev/next controls, and small checkmark/X glyphs (Lucide `Check`/`X`, 14–16px) inside circular chips for the pricing feature list and the qualification fit/not-fit split. Icons are never used as the leading element of a decorative icon-over-heading pattern — the services section explicitly avoids an icon+heading+text card grid in favor of the single connecting-line list.
+### Inputs / Fields
+Not present in this build — the page has no form fields; all conversion actions are link-style CTAs to the booking destination.
 
 ### Navigation
 Fixed header, transparent over the hero, filling to true-black with a color-inversion of the wordmark once scrolled past 24px. Nav links are `0.9rem` medium weight, muted by default, full ink/white on hover. The "Book a call" pill is always present, top-right, solid on both header states.
 
 ### Number Ticker (signature component)
-Animated count-up (`motion/react` spring, damping 60 / stiffness 100) triggered once each stat scrolls into view. Used only for the four metrics-bar stats; renders as `tabular-nums` inline with static prefix/suffix strings (`$`, `M+`, `K+`).
+Animated count-up (`motion`/`framer-motion` spring, damping 60 / stiffness 100) triggered once each stat scrolls into view. Used only for the four metrics-bar stats; renders as `tabular-nums` inline with static prefix/suffix strings (`$`, `M+`, `K+`).
 
 ### Quote Fan Carousel (signature component)
-GSAP-driven card fan: up to 7 visible cards staged in a rotation/scale/offset arc, hover-responsive (hovered card lifts and scales, neighbors push aside), paginated when more than 7 cards exist. This is the one place in the system where cards, drop-shadow-adjacent staging, and a secondary serif voice all combine — reserved for testimonials only, not a general card pattern.
+GSAP-driven card fan: up to 7 visible cards staged in a rotation/scale/offset arc, hover-responsive (hovered card lifts and scales, neighbors push aside), paginated when more than 7 cards exist. Cards use the Gradient-Wash Card pattern with Inter italic quote text. Reserved for testimonials; the fan-staging motion (not the card shape or the italic text) is what stays unique to this component.
+
+### Photo Marquee (signature component, new)
+An infinite horizontal scrolling row of rotated placeholder photo cards (`framer-motion`, linear loop, `x: 0% → -25%`, 34s duration), masked to fade at top/bottom, positioned in the lower portion of the hero between the GradientWaves background layer and the hero text content. Cards reuse the same placeholder gradient/mark treatment as the pricing portrait panel via the shared `src/lib/plan-portraits.ts` source. An own-world component (not a reactbits/magicui import); its role is atmospheric texture behind the hero copy, not interactive content.
+
+### Pricing Selector (signature component, new)
+Client-side 3-tier tabbed selector (The Essentials / The Amplifier / The Overdrive) with `framer-motion` `AnimatePresence` crossfades between tiers: the portrait panel, price, and feature checklist all crossfade together on tab change (`opacity`-only transitions, 300–400ms `easeOut`). The feature checklist is a divided list (hairline-bordered rows) with an orange checkmark chip per row, consistent with the qualification section's fit-list treatment.
 
 ## Do's and Don'ts
 
@@ -195,12 +210,14 @@ GSAP-driven card fan: up to 7 visible cards staged in a rotation/scale/offset ar
 - **Do** alternate white (`#ffffff`) and warm-paper (`#f7f6f4`) backgrounds section-to-section as the only separator; don't add a border or shadow at the seam.
 - **Do** run a single hairline rule or accent progress-line through any sequential/ordered list of items (services, process) rather than boxing each item in its own card.
 - **Do** hold body paragraph measure to 65–75ch.
-- **Do** reserve Playfair Display italic exclusively for quoted client language.
-- **Do** keep the brand gradient as a field/wash/glow (hero canvas, quote-card wash, closing-band glow), never as a gradient-clipped headline.
+- **Do** use the Gradient-Wash Card pattern (true black + top-anchored brand-gradient wash + scrim, `1.75rem` radius) for any dark, high-conviction content surface — testimonials, qualification, pricing portraits, and future surfaces of the same kind — rather than a plain solid-black or bordered-only card.
+- **Do** keep the brand gradient as a field/wash/glow (hero canvas, gradient-wash cards, closing-band glow, marquee cards), never as a gradient-clipped headline.
 - **Do** gate any WebGL/animated background loop behind `prefers-reduced-motion`.
+- **Do** label placeholder imagery honestly (centered brand mark + "reserved for {name}" caption) rather than fabricating stock photography, per the pricing portrait panel and hero marquee.
 
 ### Don't:
 - **Don't** use a gray eyebrow/kicker label above a headline. The one instance drafted for the hero was removed in finish review and folded into body copy; the pattern is not part of this system.
-- **Don't** add drop-shadow card scaffolding to services, process, pricing, or qualification content — this system separates content with tonal backgrounds and hairlines, not elevation.
-- **Don't** use true black (`#0a0a0a`) as a section's resting background outside the three structural placements (buttons, scrolled nav, closing band).
+- **Don't** add drop-shadow card scaffolding to services, process, or the light-surface qualification/pricing containers — this system separates content with tonal backgrounds and hairlines, not elevation, outside the Gradient-Wash Card family.
+- **Don't** use true black (`#0a0a0a`) as a section's resting background outside its structural placements (buttons, scrolled nav, gradient-wash cards, closing band).
 - **Don't** introduce a same-size icon-over-heading card grid for the services/discipline list; the connecting-line treatment is the confirmed replacement for the generic four-panel agency layout this build is arguing against.
+- **Don't** introduce a second typeface. Inter (including its real italic style) is the sole family; do not reach for a serif or display face for quotes, headlines, or any other register.

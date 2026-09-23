@@ -37,7 +37,7 @@ Single-page marketing site (App Router `/` route). Primary conversion action is 
 
 - Name: Doomsday Studios. Wordmark and hourglass mark are final assets, not placeholders.
 - Palette is binding, user-specified: black + orange, brand gradient sampled from the mark (`#D8220C → #FF4400 → #F4631E`), rendered in **light mode** (white/off-white surfaces, near-black ink; black reserved structurally, not as the page background).
-- Typography reference: doomsday.studio's own font-face rules (Inter Display for headlines/UI, Playfair Display declared as serif accent) — matched via `next/font/google` `Inter` + `Playfair Display`.
+- Typography: Inter only (`next/font/google`, weights 400–800, including real italic for quoted/emphasis text) — user directed a switch away from the earlier Inter + Playfair Display pairing to a single-typeface system.
 - Reference site for tone, spacing, and layout rhythm: doomsday.studio.
 - Required component integrations (user-specified, not open decisions): reactbits `GradientWaves` (`@react-bits` registry, WebGL/`ogl`) as the hero background; the fan-carousel component supplied in `component.md`, adapted to render branded quote cards (no fabricated stock photos of the named testimonial-givers) for the testimonials section; MagicUI components used as supporting UI accents.
 - Tone: bold, cinematic, qualification-forward copy ("Create like there's no tomorrow") — confident agency voice, not generic SaaS marketing tone.

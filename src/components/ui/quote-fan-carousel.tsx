@@ -364,10 +364,10 @@ export default function QuoteFanCarousel({ cards }: QuoteFanCarouselProps) {
                   aria-hidden
                   className="pointer-events-none absolute inset-0 bg-[#0A0A0A]/55"
                 />
-                <span className="relative font-serif text-5xl italic leading-none text-white/25">
+                <span className="relative text-5xl italic leading-none text-white/25">
                   &ldquo;
                 </span>
-                <blockquote className="relative -mt-4 flex-1 font-serif text-[1.05rem] italic leading-snug text-white sm:text-[1.15rem]">
+                <blockquote className="relative -mt-4 flex-1 text-[1.05rem] font-medium italic leading-snug text-white sm:text-[1.15rem]">
                   {card.quote}
                 </blockquote>
                 <figcaption className="relative mt-6 flex items-center gap-3 border-t border-white/15 pt-4">

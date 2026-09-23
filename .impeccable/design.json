@@ -65,15 +65,18 @@
       "title": { "displayName": "Title", "purpose": "Card/step titles inside services and process lists." },
       "body": { "displayName": "Body", "purpose": "Paragraph copy, held to 65-75ch measure." },
       "label": { "displayName": "Label", "purpose": "Step numerals, stat labels, nav links." },
-      "pull-quote": { "displayName": "Pull-Quote", "purpose": "Playfair Display italic, testimonial quotes only." }
+      "pull-quote": { "displayName": "Pull-Quote", "purpose": "Inter real italic (400-500), testimonial quotes only. No longer a separate serif face." }
     },
     "shadows": [
       { "name": "cta-hover-glow", "value": "0 0 0 1px var(--color-accent), 0 10px 30px -8px rgba(255,68,0,0.55)", "purpose": "Primary button hover/focus state." },
-      { "name": "sticky-bar-ambient", "value": "0 12px 40px -12px rgba(10,10,10,0.45)", "purpose": "Fixed sticky CTA bar at rest, since it floats above page flow." }
+      { "name": "sticky-bar-ambient", "value": "0 12px 40px -12px rgba(10,10,10,0.45)", "purpose": "Fixed sticky CTA bar at rest, since it floats above page flow." },
+      { "name": "marquee-card-ambient", "value": "0 18px 40px -16px rgba(10,10,10,0.35)", "purpose": "Hero photo-marquee's rotated placeholder cards, representing stacked photo prints." }
     ],
     "motion": [
       { "name": "reduced-motion-gate", "value": "prefers-reduced-motion: reduce collapses animation/transition durations to 0.01ms globally", "purpose": "Accessibility gate applied globally in globals.css and specifically to the GradientWaves WebGL loop." },
-      { "name": "scroll-reveal", "value": "opacity/translate transition, duration 700ms, ease-out, staggered ~110-220ms per item", "purpose": "IntersectionObserver-driven entrance for problem, process, qualification, and booking-explainer list items." }
+      { "name": "scroll-reveal", "value": "opacity/translate transition, duration 700ms, ease-out, staggered ~110-220ms per item", "purpose": "IntersectionObserver-driven entrance for problem, process, qualification, and booking-explainer list items." },
+      { "name": "marquee-scroll", "value": "framer-motion x: 0% to -25%, linear ease, 34s, infinite repeat", "purpose": "Hero photo-marquee's continuous horizontal loop." },
+      { "name": "tier-crossfade", "value": "framer-motion AnimatePresence, opacity 0 to 1 (plus y: 6px to 0 for the price), 300-400ms easeOut", "purpose": "Pricing selector's portrait/price/checklist crossfade between tiers." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -99,12 +102,12 @@
       "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 0.625rem; border-radius: 999px; padding: 0.875rem 1.5rem; font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em; background: transparent; color: #1a1a1a; border: 1px solid #e7e5e2; transition: border-color 0.3s ease-out, color 0.3s ease-out; text-decoration: none; } .ds-btn-outline:hover { border-color: #ff4400; color: #d8220c; } .ds-btn-outline:focus-visible { outline: 2px solid #ff4400; outline-offset: 3px; }"
     },
     {
-      "name": "Quote Card",
+      "name": "Gradient-Wash Card",
       "kind": "card",
-      "refersTo": "quote-card",
-      "description": "True-black testimonial card with brand-gradient wash, Playfair Display italic quote, initials avatar. The system's one card shape.",
+      "refersTo": "gradient-wash-card",
+      "description": "True-black card with a top-anchored brand-gradient wash and scrim. Shared pattern behind the testimonial quote card, qualification fit card, and pricing portrait panel. Quote text now renders in Inter italic (no separate serif face).",
       "html": "<figure class=\"ds-quote-card\"><span class=\"ds-quote-mark\">&ldquo;</span><blockquote class=\"ds-quote-text\">Working with Doomsday changed how consistent our brand feels online.</blockquote><figcaption class=\"ds-quote-caption\"><span class=\"ds-quote-avatar\">VP</span><span class=\"ds-quote-names\"><span class=\"ds-quote-name\">Victor</span><span class=\"ds-quote-role\">CEO, Vix Protection</span></span></figcaption></figure>",
-      "css": ".ds-quote-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; border-radius: 1.75rem; border: 1px solid rgba(255,255,255,0.1); background: radial-gradient(120% 140% at 12% -10%, #D8220C 0%, #FF4400 42%, transparent 72%), #0a0a0a; padding: 2rem; color: #ffffff; width: 16rem; height: 22rem; } .ds-quote-mark { font-family: var(--font-serif, Georgia, serif); font-style: italic; font-size: 3rem; line-height: 1; color: rgba(255,255,255,0.25); } .ds-quote-text { font-family: var(--font-serif, Georgia, serif); font-style: italic; font-size: 1.05rem; line-height: 1.35; margin-top: -1rem; flex: 1; } .ds-quote-caption { display: flex; align-items: center; gap: 0.75rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1rem; margin-top: 1.5rem; } .ds-quote-avatar { display: flex; height: 2.5rem; width: 2.5rem; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); font-size: 0.75rem; font-weight: 600; } .ds-quote-name { display: block; font-size: 0.875rem; font-weight: 600; } .ds-quote-role { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.6); }"
+      "css": ".ds-quote-card { position: relative; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; border-radius: 1.75rem; border: 1px solid rgba(255,255,255,0.1); background: radial-gradient(120% 140% at 12% -10%, #D8220C 0%, #FF4400 42%, transparent 72%), #0a0a0a; padding: 2rem; color: #ffffff; width: 16rem; height: 22rem; } .ds-quote-mark { font-style: italic; font-size: 3rem; line-height: 1; color: rgba(255,255,255,0.25); } .ds-quote-text { font-style: italic; font-weight: 500; font-size: 1.05rem; line-height: 1.35; margin-top: -1rem; flex: 1; } .ds-quote-caption { display: flex; align-items: center; gap: 0.75rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1rem; margin-top: 1.5rem; } .ds-quote-avatar { display: flex; height: 2.5rem; width: 2.5rem; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); font-size: 0.75rem; font-weight: 600; } .ds-quote-name { display: block; font-size: 0.875rem; font-weight: 600; } .ds-quote-role { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.6); }"
     },
     {
       "name": "Site Header",
@@ -121,37 +124,47 @@
       "description": "Divided checklist row used in pricing and qualification, orange checkmark in a circular chip.",
       "html": "<ul class=\"ds-feature-list\"><li class=\"ds-feature-item\"><span class=\"ds-feature-check\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><polyline points=\"20 6 9 17 4 12\"/></svg></span>Short-form video and static creative</li></ul>",
       "css": ".ds-feature-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid #e7e5e2; } .ds-feature-item { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 0; border-top: 1px solid #e7e5e2; font-size: 1.05rem; color: #1a1a1a; } .ds-feature-item:first-child { border-top: none; } .ds-feature-check { display: flex; height: 1.1rem; width: 1.1rem; flex-shrink: 0; color: #ff4400; }"
+    },
+    {
+      "name": "Pricing Tab Switcher",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Pill-shaped segmented control for the 3-tier pricing selector; active tab fills true-black, inactive tabs are muted-ink text.",
+      "html": "<div class=\"ds-tab-switcher\"><button class=\"ds-tab ds-tab--active\">The Essentials</button><button class=\"ds-tab\">The Amplifier</button><button class=\"ds-tab\">The Overdrive</button></div>",
+      "css": ".ds-tab-switcher { display: inline-flex; align-items: center; gap: 0.25rem; border-radius: 999px; border: 1px solid #e7e5e2; padding: 0.25rem; } .ds-tab { border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 600; letter-spacing: -0.01em; color: #6f6d72; background: transparent; border: none; transition: color 0.3s, background-color 0.3s; } .ds-tab:hover { color: #1a1a1a; } .ds-tab--active, .ds-tab--active:hover { background: #0a0a0a; color: #ffffff; }"
     }
   ],
   "narrative": {
     "northStar": "The Unbroken Line",
-    "overview": "Doomsday's landing page argues one connected team over a disconnected vendor stack, and the design carries that argument structurally: a single hairline rule runs through the services list, a single accent-colored progress line fills through the process steps, and every section shares the same warm-white/near-black/brand-orange register with no visual seams between them. The register is editorial and restrained — warm-white paper grounds, near-black ink, hairline dividers, flat surfaces — with the brand gradient (#D8220C → #FF4400 → #F4631E) deployed at full commitment only where it is structurally earned: the hero's GradientWaves field, testimonial-card washes, and the closing CTA band's radial glow. True black (#0A0A0A) is reserved for primary buttons, the nav's scrolled state, and the full-bleed closing band — never as the page's resting background.\n\nThis is a code-led, no-comp build: the direction contract pinned palette, mode, typography, and section order before any layout decision, leaving composition (not identity) as the open variable. A finish-review pass removed one violation before ship — a generic gray eyebrow/kicker above the hero headline — replacing it with the ICP claim woven directly into the hero's body copy. That is not a system rule to preserve going forward; it is a defect the build avoided, and no kicker/eyebrow pattern exists anywhere in the shipped surfaces.",
+    "overview": "Doomsday's landing page argues one connected team over a disconnected vendor stack, and the design carries that argument structurally: a single hairline rule runs through the services list, a single accent-colored progress line fills through the process steps, and every section shares the same warm-white/near-black/brand-orange register with no visual seams between them. The register is editorial and restrained — warm-white paper grounds, near-black ink, hairline dividers, flat surfaces — with the brand gradient (#D8220C → #FF4400 → #F4631E) deployed at full commitment only where it is structurally earned: the hero's GradientWaves field, dark gradient-wash cards (testimonials, qualification, pricing portrait), the hero's photo marquee, and the closing CTA band's radial glow. True black (#0A0A0A) is reserved for primary buttons, the nav's scrolled state, gradient-wash card grounds, and the full-bleed closing band — never as the page's resting section background.\n\nThis is a code-led, no-comp build: the direction contract pinned palette, mode, typography, and section order before any layout decision, leaving composition (not identity) as the open variable. A finish-review pass removed one violation before ship — a generic gray eyebrow/kicker above the hero headline — replacing it with the ICP claim woven directly into the hero's body copy. That is not a system rule to preserve going forward; it is a defect the build avoided, and no kicker/eyebrow pattern exists anywhere in the shipped surfaces.\n\nSince the first build, the typography system was simplified to a single Inter-only voice (Playfair Display was removed entirely, including from testimonial quotes), and the dark gradient-wash card — originally scoped to testimonials only — was confirmed as a reusable content pattern now shared by testimonials, the qualification 'fit' card, and the pricing portrait panel. A new hero photo-marquee and a rebuilt 3-tier pricing selector both reuse this same placeholder-portrait treatment (radial brand-gradient wash over true black, centered brand mark, no fabricated photography) rather than inventing a new visual language.",
     "keyCharacteristics": [
       "Warm-white paper grounds (#FFFFFF / #F7F6F4) with near-black ink (#1A1A1A), never pure black for body text",
-      "Brand gradient carried at full saturation only in the hero canvas, testimonial-card washes, and the closing CTA glow — never as gradient text",
-      "True black (#0A0A0A) reserved structurally: primary buttons, header-on-scroll, closing CTA band",
-      "Flat, editorial register: hairline 1px dividers do the separating work; no drop-shadow card scaffolding",
-      "Inter (500–900) for every heading and UI element; Playfair Display italic reserved exclusively for testimonial pull-quotes"
+      "Brand gradient carried at full saturation only in the hero canvas, dark gradient-wash cards, and the closing CTA glow — never as gradient text",
+      "True black (#0A0A0A) reserved structurally: primary buttons, header-on-scroll, gradient-wash card grounds, closing CTA band",
+      "Flat, editorial register: hairline 1px dividers do the separating work; no drop-shadow card scaffolding outside the gradient-wash card family",
+      "Inter is the sole typeface (400–800, including real italic 400–500) for every heading, UI element, and quoted/emphasized text — no second typeface"
     ],
     "rules": [
-      { "name": "The Reserved Black Rule", "body": "True black (#0a0a0a) is not a background default; it appears only at three structural points (primary buttons, header once scrolled, the closing full-bleed band). Everywhere else the ground is warm white or warm paper.", "section": "colors" },
+      { "name": "The Reserved Black Rule", "body": "True black (#0a0a0a) is not a background default; it appears only at structural points (primary buttons, header once scrolled, gradient-wash cards, the closing full-bleed band). Everywhere else the ground is warm white or warm paper.", "section": "colors" },
       { "name": "The No-Gradient-Text Rule", "body": "The brand gradient renders as a field, wash, or glow — never as a text-fill effect. Confirmed by the direction contract and consistent across every shipped section.", "section": "colors" },
-      { "name": "The One Serif Rule", "body": "Playfair Display appears in exactly one place — testimonial pull-quotes inside the quote-fan-carousel. It never appears in a headline, label, or button.", "section": "typography" },
-      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Shadow appears only on the primary CTA's hover/focus state and on the one element that floats above page flow (sticky CTA bar).", "section": "elevation" }
+      { "name": "The Inter-Only Rule", "body": "Inter is the only typeface in the system — display, body, label, and quoted/pull-quote text all resolve to the same family, differentiated by weight, size, and (for quotes only) real italic style. There is no second/accent typeface anywhere in the build.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Shadow appears only on the primary CTA's hover/focus state and on elements that represent something physically detached from the page plane (sticky CTA bar, marquee photo cards).", "section": "elevation" }
     ],
     "dos": [
       "Do alternate white (#ffffff) and warm-paper (#f7f6f4) backgrounds section-to-section as the only separator; don't add a border or shadow at the seam.",
       "Do run a single hairline rule or accent progress-line through any sequential/ordered list of items (services, process) rather than boxing each item in its own card.",
       "Do hold body paragraph measure to 65-75ch.",
-      "Do reserve Playfair Display italic exclusively for quoted client language.",
-      "Do keep the brand gradient as a field/wash/glow (hero canvas, quote-card wash, closing-band glow), never as a gradient-clipped headline.",
-      "Do gate any WebGL/animated background loop behind prefers-reduced-motion."
+      "Do use the Gradient-Wash Card pattern (true black + top-anchored brand-gradient wash + scrim, 1.75rem radius) for any dark, high-conviction content surface — testimonials, qualification, pricing portraits, and future surfaces of the same kind — rather than a plain solid-black or bordered-only card.",
+      "Do keep the brand gradient as a field/wash/glow (hero canvas, gradient-wash cards, closing-band glow, marquee cards), never as a gradient-clipped headline.",
+      "Do gate any WebGL/animated background loop behind prefers-reduced-motion.",
+      "Do label placeholder imagery honestly (centered brand mark + \"reserved for {name}\" caption) rather than fabricating stock photography, per the pricing portrait panel and hero marquee."
     ],
     "donts": [
       "Don't use a gray eyebrow/kicker label above a headline. The one instance drafted for the hero was removed in finish review and folded into body copy; the pattern is not part of this system.",
-      "Don't add drop-shadow card scaffolding to services, process, pricing, or qualification content — this system separates content with tonal backgrounds and hairlines, not elevation.",
-      "Don't use true black (#0a0a0a) as a section's resting background outside the three structural placements (buttons, scrolled nav, closing band).",
-      "Don't introduce a same-size icon-over-heading card grid for the services/discipline list; the connecting-line treatment is the confirmed replacement for the generic four-panel agency layout this build is arguing against."
+      "Don't add drop-shadow card scaffolding to services, process, or the light-surface qualification/pricing containers — this system separates content with tonal backgrounds and hairlines, not elevation, outside the Gradient-Wash Card family.",
+      "Don't use true black (#0a0a0a) as a section's resting background outside its structural placements (buttons, scrolled nav, gradient-wash cards, closing band).",
+      "Don't introduce a same-size icon-over-heading card grid for the services/discipline list; the connecting-line treatment is the confirmed replacement for the generic four-panel agency layout this build is arguing against.",
+      "Don't introduce a second typeface. Inter (including its real italic style) is the sole family; do not reach for a serif or display face for quotes, headlines, or any other register."
     ]
   }
 }

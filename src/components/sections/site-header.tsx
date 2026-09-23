@@ -25,10 +25,10 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ${
         scrolled
-          ? "bg-[var(--color-surface-black)]"
-          : "bg-transparent"
+          ? "border-b border-white/10 bg-[var(--color-surface-black)]/75 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-[4.5rem] max-w-[90rem] items-center justify-between px-6 md:px-10">

@@ -10,7 +10,7 @@ const HANDOFFS = [
 ];
 
 export function Problem() {
-  const { ref, inView } = useInView<HTMLDivElement>(0.3);
+  const { ref, inView } = useInView<HTMLDivElement>(0.2);
 
   return (
     <section className="w-full bg-[var(--color-surface)] py-24 md:py-32">
@@ -29,31 +29,37 @@ export function Problem() {
 
         <div ref={ref} className="mt-14 flex flex-col md:mt-16">
           {HANDOFFS.map((line, i) => (
-            <p
+            <div
               key={line}
-              className="border-t border-[var(--color-line)] py-5 text-[1.15rem] leading-snug text-[var(--color-ink-muted)] transition-all duration-700 ease-out first:pt-0 md:text-[1.3rem]"
+              className="border-t border-[var(--color-line)] py-5 first:pt-0"
+            >
+              <p
+                className="text-[1.15rem] leading-snug text-[var(--color-ink-muted)] transition-all duration-700 ease-out md:text-[1.3rem]"
+                style={{
+                  marginLeft: `${i * 1.75}rem`,
+                  transitionDelay: `${i * 110}ms`,
+                  opacity: inView ? 1 : 0,
+                  transform: inView ? "translateX(0)" : "translateX(-1.5rem)",
+                }}
+              >
+                {line}
+              </p>
+            </div>
+          ))}
+          <div className="border-y border-[var(--color-line)] py-5">
+            <p
+              className="text-[1.15rem] font-medium leading-snug text-[var(--color-ink)] transition-all duration-700 ease-out md:text-[1.3rem]"
               style={{
-                marginLeft: `${i * 1.75}rem`,
-                transitionDelay: `${i * 110}ms`,
+                marginLeft: `${HANDOFFS.length * 1.75}rem`,
+                transitionDelay: `${HANDOFFS.length * 110}ms`,
                 opacity: inView ? 1 : 0,
-                transform: inView ? "translateX(0)" : "translateX(-1rem)",
+                transform: inView ? "translateX(0)" : "translateX(-1.5rem)",
               }}
             >
-              {line}
+              By the time the campaign launches, nobody really owns the whole
+              thing.
             </p>
-          ))}
-          <p
-            className="border-y border-[var(--color-line)] py-5 text-[1.15rem] font-medium leading-snug text-[var(--color-ink)] transition-all duration-700 ease-out md:text-[1.3rem]"
-            style={{
-              marginLeft: `${HANDOFFS.length * 1.75}rem`,
-              transitionDelay: `${HANDOFFS.length * 110}ms`,
-              opacity: inView ? 1 : 0,
-              transform: inView ? "translateX(0)" : "translateX(-1rem)",
-            }}
-          >
-            By the time the campaign launches, nobody really owns the whole
-            thing.
-          </p>
+          </div>
         </div>
 
         <p className="mt-14 max-w-[62ch] text-[1.3rem] font-semibold leading-[1.4] tracking-[-0.01em] text-[var(--color-ink)] md:mt-16">
