@@ -1,7 +1,23 @@
 import Link from "next/link";
 import FadeContent from "@/components/FadeContent";
 import { GlareSurface } from "@/components/ui/glare-surface";
-import { SlidingGallery } from "@/components/ui/sliding-gallery";
+import CardFanCarousel from "@/components/ui/card-fan-carousel";
+
+const WORK_CARDS = [
+  { imgUrl: "/work/vix-cut-resistant.jpg", alt: "Vix cut-resistant apparel product photography" },
+  { imgUrl: "/work/wedding-function.jpg", alt: "Wedding recessional, guests throwing confetti" },
+  { imgUrl: "/work/studio-lights.jpg", alt: "Behind-the-scenes studio lighting setup" },
+  { imgUrl: "/work/suited-couple.jpg", alt: "Wedding reception, champagne tower pour" },
+  { imgUrl: "/work/vix-stretchable.jpg", alt: "Vix stretchable fabric product detail" },
+  { imgUrl: "/work/team-working-at-the-table-in-well-lit-office.jpg", alt: "Team working together in a sunlit studio" },
+  { imgUrl: "/work/cake-cutting-photoshoot.jpg", alt: "Wedding cake-cutting at golden hour" },
+  { imgUrl: "/work/podcast-studio.jpg", alt: "Podcast studio setup with mixed lighting" },
+  { imgUrl: "/work/man-wearing-cut-resistant-leggings.jpg", alt: "Vix cut-resistant leggings product photography" },
+  { imgUrl: "/work/wedding-photoshoot.jpg", alt: "Wedding couple portrait beside a classic car" },
+  { imgUrl: "/work/portrait-shot-of-person.jpg", alt: "Outdoor coastal portrait" },
+  { imgUrl: "/work/couple-corridor-shot.jpg", alt: "Wedding couple portrait in a period hallway" },
+  { imgUrl: "/work/ambient-light-bts.jpg", alt: "Behind-the-scenes desk setup with ambient lighting" },
+];
 
 export function ClosingCta() {
   return (
@@ -97,13 +113,13 @@ export function ClosingCta() {
             A body of work always in motion.
           </h2>
           <p className="mx-auto mt-6 max-w-[46ch] text-[1.05rem] leading-[1.55] text-[var(--color-ink-on-black-muted)]">
-            Real campaign stills land here as work ships. For now, this strip
-            marks the space they&rsquo;ll fill.
+            Campaign stills, product shoots and behind-the-scenes from
+            projects we&rsquo;ve shipped.
           </p>
         </div>
 
-        <div className="mt-14 md:mt-16">
-          <SlidingGallery />
+        <div className="mx-auto mt-14 max-w-[90rem] md:mt-16">
+          <CardFanCarousel cards={WORK_CARDS} />
         </div>
       </FadeContent>
     </section>

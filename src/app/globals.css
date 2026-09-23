@@ -75,12 +75,53 @@ body {
   outline-offset: 3px;
 }
 
-@keyframes slide-loop {
-  from {
-    transform: translateX(0);
+/* Card fan carousel — sizes match the breakpoints CardFanCarousel's
+   getHeightMultiplier/getResponsiveMultiplier read from window.innerWidth. */
+.fan-layout {
+  height: 22rem;
+}
+.fan-card {
+  position: absolute;
+  width: 9.5rem;
+  height: 12.5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -18px rgba(0, 0, 0, 0.55);
+}
+@media (min-width: 480px) {
+  .fan-layout {
+    height: 26rem;
   }
-  to {
-    transform: translateX(-50%);
+  .fan-card {
+    width: 11rem;
+    height: 14.5rem;
+  }
+}
+@media (min-width: 640px) {
+  .fan-layout {
+    height: 28rem;
+  }
+  .fan-card {
+    width: 12rem;
+    height: 16rem;
+  }
+}
+@media (min-width: 768px) {
+  .fan-layout {
+    height: 34rem;
+  }
+  .fan-card {
+    width: 13.5rem;
+    height: 18rem;
+  }
+}
+@media (min-width: 1024px) {
+  .fan-layout {
+    height: 38rem;
+  }
+  .fan-card {
+    width: 15rem;
+    height: 20rem;
   }
 }
 
