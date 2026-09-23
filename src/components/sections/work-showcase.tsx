@@ -3,7 +3,7 @@ import FadeContent from "@/components/FadeContent";
 
 export function WorkShowcase() {
   return (
-    <section className="w-full overflow-hidden bg-[var(--color-surface-black)] py-24 md:py-32">
+    <section className="w-full overflow-hidden border-t border-white/10 bg-[var(--color-surface-black)] py-24 md:py-32">
       <FadeContent duration={700} ease="power2.out" threshold={0.2}>
         <div className="mx-auto max-w-[90rem] px-6 text-center md:px-10">
           <h2 className="mx-auto max-w-[20ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink-on-black)]">

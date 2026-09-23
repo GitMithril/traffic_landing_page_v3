@@ -2,8 +2,7 @@ import { SiteHeader } from "@/components/sections/site-header";
 import { Hero } from "@/components/sections/hero";
 import { MetricsBar } from "@/components/sections/metrics-bar";
 import { Problem } from "@/components/sections/problem";
-import { Services } from "@/components/sections/services";
-import { Process } from "@/components/sections/process";
+import { HowWeWork } from "@/components/sections/how-we-work";
 import { Testimonials } from "@/components/sections/testimonials";
 import { WorkShowcase } from "@/components/sections/work-showcase";
 import { Pricing } from "@/components/sections/pricing";
@@ -20,14 +19,13 @@ export default function Home() {
         <Hero />
         <MetricsBar />
         <Problem />
-        <Services />
-        <Process />
+        <HowWeWork />
         <Testimonials />
-        <WorkShowcase />
         <Pricing />
         <Qualification />
         <BookingExplainer />
         <ClosingCta />
+        <WorkShowcase />
       </main>
       <StickyCta />
     </>
