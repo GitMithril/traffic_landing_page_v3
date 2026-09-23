@@ -27,12 +27,12 @@ export function Problem() {
           .
         </p>
 
-        <div ref={ref} className="mt-14 flex flex-col md:mt-16">
+        <div
+          ref={ref}
+          className="mt-14 flex flex-col divide-y divide-[var(--color-line)] md:mt-16"
+        >
           {HANDOFFS.map((line, i) => (
-            <div
-              key={line}
-              className="border-t border-[var(--color-line)] py-5 first:pt-0"
-            >
+            <div key={line} className="py-5">
               <p
                 className="text-[1.15rem] leading-snug text-[var(--color-ink-muted)] transition-all duration-700 ease-out md:text-[1.3rem]"
                 style={{
@@ -46,7 +46,7 @@ export function Problem() {
               </p>
             </div>
           ))}
-          <div className="border-y border-[var(--color-line)] py-5">
+          <div className="border-b border-[var(--color-line)] py-5">
             <p
               className="text-[1.15rem] font-medium leading-snug text-[var(--color-ink)] transition-all duration-700 ease-out md:text-[1.3rem]"
               style={{

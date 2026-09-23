@@ -1,11 +1,18 @@
 import { NumberTicker } from "@/components/ui/number-ticker";
 import AnimatedContent from "@/components/AnimatedContent";
 
-const STATS: { value: number; prefix?: string; suffix: string; label: string }[] = [
-  { value: 4, suffix: "M+", label: "audience reach" },
-  { value: 550, suffix: "+", label: "hours of content" },
-  { value: 20, suffix: "+", label: "projects completed" },
-  { value: 50, prefix: "$", suffix: "K+", label: "ad spend managed" },
+const STATS: {
+  value: number;
+  prefix?: string;
+  suffix: string;
+  decimalPlaces?: number;
+  label: string;
+}[] = [
+  { value: 42, suffix: "+", label: "Projects completed" },
+  { value: 7.5, suffix: "%", decimalPlaces: 1, label: "Ad campaign CTR" },
+  { value: 1, suffix: "K+", label: "Hours of content" },
+  { value: 15, suffix: "M+", label: "Audience reach" },
+  { value: 3.5, suffix: "x", decimalPlaces: 1, label: "Avg. ROI delivered" },
 ];
 
 export function MetricsBar() {
@@ -17,7 +24,7 @@ export function MetricsBar() {
             One team. Less friction. Better creative.
           </h2>
 
-          <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-[var(--color-line)] pt-10 md:mt-14 md:flex md:pt-12">
+          <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-[var(--color-line)] pt-10 sm:grid-cols-3 md:mt-14 md:flex md:pt-12">
             {STATS.map((stat, i) => (
               <div
                 key={stat.label}
@@ -25,10 +32,11 @@ export function MetricsBar() {
                   i > 0 ? "md:border-l md:border-[var(--color-line)] md:pl-10" : ""
                 }`}
               >
-                <p className="flex items-baseline text-[clamp(2.25rem,4.4vw,3.5rem)] font-extrabold leading-none tracking-[-0.03em] text-[var(--color-ink)]">
+                <p className="flex items-baseline text-[clamp(2rem,3.6vw,3.5rem)] font-extrabold leading-none tracking-[-0.03em] text-[var(--color-ink)]">
                   {stat.prefix}
                   <NumberTicker
                     value={stat.value}
+                    decimalPlaces={stat.decimalPlaces}
                     className="text-[var(--color-ink)] tabular-nums"
                   />
                   {stat.suffix}
