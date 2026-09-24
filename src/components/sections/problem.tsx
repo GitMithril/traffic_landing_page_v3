@@ -46,7 +46,7 @@ export function Problem() {
         <p className="text-[0.85rem] font-bold tracking-[0.02em] text-[var(--color-danger)]">
           The problem
         </p>
-        <h2 className="mt-3 max-w-[20ch] text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-3.5px] text-[var(--color-ink)]">
+        <h2 className="mt-3 max-w-[20ch] text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink)]">
           Your creative shouldn&rsquo;t fall apart between handoffs.
         </h2>
 

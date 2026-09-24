@@ -47,7 +47,7 @@ export function Qualification() {
 
       <div className="relative mx-auto max-w-[90rem] px-6 md:px-10">
         <FadeContent blur duration={850} ease="power2.out" threshold={0.15}>
-          <h2 className="max-w-[16ch] text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-3.5px] text-[var(--color-ink)]">
+          <h2 className="max-w-[16ch] text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink)]">
             Is Doomsday right for you?
           </h2>
 

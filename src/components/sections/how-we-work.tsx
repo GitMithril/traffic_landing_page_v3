@@ -78,7 +78,7 @@ export function HowWeWork() {
         <div className="grid gap-14 md:grid-cols-2 md:gap-16">
           {/* Left pane — what you get */}
           <div>
-            <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.06] tracking-[-3.5px] text-[var(--color-ink)]">
+            <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.06] tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink)]">
               Everything needed to keep your brand moving.
             </h2>
 
@@ -106,7 +106,7 @@ export function HowWeWork() {
 
           {/* Right pane — how we do it */}
           <div>
-            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.06] tracking-[-3.5px] text-[var(--color-ink)]">
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.06] tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink)]">
               How we work
             </h2>
 

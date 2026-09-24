@@ -48,7 +48,7 @@ export function BookingExplainer() {
 
       <div className="relative mx-auto max-w-[90rem] px-6 md:px-10">
         <div className="max-w-2xl">
-          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-3.5px] text-[var(--color-ink)]">
+          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink)]">
             What happens when you book?
           </h2>
           <p className="mt-3 text-[1.1rem] leading-[1.55] text-[var(--color-ink-muted)]">

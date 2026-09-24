@@ -130,7 +130,7 @@ export function Pricing() {
           ease="power2.out"
           threshold={0.15}
         >
-          <h2 className="max-w-[24ch] text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-3.5px] text-[var(--color-ink)]">
+          <h2 className="max-w-[24ch] text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink)]">
             Need consistent creative without building an in-house team?
           </h2>
 
@@ -204,7 +204,7 @@ export function Pricing() {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="mt-6 flex items-baseline gap-2"
                 >
-                  <span className="text-[clamp(2.75rem,5.5vw,3.75rem)] font-bold leading-none tracking-[-3.5px] text-[var(--color-ink)]">
+                  <span className="text-[clamp(2.75rem,5.5vw,3.75rem)] font-bold leading-none tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink)]">
                     {plan.price}
                   </span>
                   <span className="text-[1.05rem] font-medium text-[var(--color-ink-muted)]">

@@ -27,7 +27,7 @@ export function ClosingCta() {
 
         <div className="relative mx-auto max-w-[90rem] px-6 text-center md:px-10">
           <FadeContent blur duration={1000} ease="power2.out" threshold={0.2}>
-            <h2 className="mx-auto max-w-[18ch] text-[clamp(2.5rem,5.5vw,4.75rem)] font-medium leading-[0.98] tracking-[-3.5px] text-[var(--color-ink-on-black)]">
+            <h2 className="mx-auto max-w-[18ch] text-[clamp(2.5rem,5.5vw,4.75rem)] font-medium leading-[0.98] tracking-[-1px] md:tracking-[-3.5px] text-[var(--color-ink-on-black)]">
               Create like there&rsquo;s no tomorrow.
             </h2>
 
