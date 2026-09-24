@@ -68,7 +68,7 @@ export function Pricing() {
           ease="power2.out"
           threshold={0.15}
         >
-          <h2 className="max-w-[24ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
+          <h2 className="max-w-[24ch] text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
             Simple pricing.
           </h2>
 
@@ -99,7 +99,7 @@ export function Pricing() {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="mt-6 flex items-baseline gap-2"
               >
-                <span className="text-[clamp(2.75rem,5.5vw,3.5rem)] font-extrabold leading-none tracking-[-0.03em] text-[var(--color-ink)]">
+                <span className="text-[clamp(2.75rem,5.5vw,3.5rem)] font-bold leading-none tracking-[-0.015em] text-[var(--color-ink)]">
                   {plan.price}
                 </span>
                 <span className="text-[1.05rem] font-medium text-[var(--color-ink-muted)]">

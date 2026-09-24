@@ -45,108 +45,96 @@ const STEPS = [
   },
 ];
 
-function TimelineDot({ inView, delay }: { inView: boolean; delay: number }) {
-  return (
-    <span
-      className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-[var(--color-surface-warm)] transition-colors duration-500"
-      style={{
-        backgroundColor: inView ? "var(--color-accent)" : "var(--color-line)",
-        transitionDelay: `${delay}ms`,
-      }}
-      aria-hidden
-    />
-  );
-}
-
-function TimelineLine({ inView }: { inView: boolean }) {
-  return (
-    <>
-      <div
-        aria-hidden
-        className="absolute left-3 top-3 h-[calc(100%-1.5rem)] w-px bg-[var(--color-line)]"
-      />
-      <div
-        aria-hidden
-        className="absolute left-3 top-3 w-px origin-top bg-[var(--color-accent)] transition-transform duration-[1800ms] ease-out"
-        style={{
-          height: "calc(100% - 1.5rem)",
-          transform: `scaleY(${inView ? 1 : 0})`,
-        }}
-      />
-    </>
-  );
-}
+const GLASS_CARD =
+  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/40 before:to-transparent";
 
 export function HowWeWork() {
   const { ref, inView } = useInView<HTMLDivElement>(0.15);
 
   return (
-    <section id="work" className="w-full bg-[var(--color-surface-warm)] py-24 md:py-32">
-      <div ref={ref} className="mx-auto max-w-[90rem] px-6 md:px-10">
+    <section
+      id="work"
+      className="relative w-full overflow-hidden bg-[var(--color-surface-warm)] py-24 md:py-32"
+    >
+      {/* Soft brand-gradient glow field — gives the glass cards above something to refract. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-[6%] top-16 h-[30rem] w-[30rem] rounded-full opacity-45 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-accent-light) 0%, transparent 75%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[6%] bottom-16 h-[30rem] w-[30rem] rounded-full opacity-40 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-accent) 0%, transparent 75%)",
+        }}
+      />
+
+      <div ref={ref} className="relative mx-auto max-w-[90rem] px-6 md:px-10">
         <div className="grid gap-14 md:grid-cols-2 md:gap-16">
           {/* Left pane — what you get */}
           <div>
-            <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-extrabold leading-[1.06] tracking-[-0.03em] text-[var(--color-ink)]">
+            <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.06] tracking-[-0.015em] text-[var(--color-ink)]">
               Everything needed to keep your brand moving.
             </h2>
 
-            <ol className="relative mt-12 flex flex-col gap-10">
-              <TimelineLine inView={inView} />
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {DISCIPLINES.map((d, i) => (
-                <li key={d.name} className="relative pl-10">
-                  <TimelineDot inView={inView} delay={i * 140} />
-                  <div
-                    className="transition-all duration-700 ease-out"
-                    style={{
-                      transitionDelay: `${i * 140}ms`,
-                      opacity: inView ? 1 : 0,
-                      transform: inView ? "translateY(0)" : "translateY(0.75rem)",
-                    }}
-                  >
-                    <h3 className="text-[1.2rem] font-bold leading-snug text-[var(--color-ink)]">
-                      {d.name}
-                    </h3>
-                    <p className="mt-2 max-w-[38ch] text-[1rem] leading-[1.55] text-[var(--color-ink-muted)]">
-                      {d.body}
-                    </p>
-                  </div>
-                </li>
+                <div
+                  key={d.name}
+                  className={`${GLASS_CARD} p-5`}
+                  style={{
+                    transitionDelay: `${i * 110}ms`,
+                    opacity: inView ? 1 : 0,
+                    transform: inView ? "translateY(0)" : "translateY(0.75rem)",
+                  }}
+                >
+                  <h3 className="relative text-[1.1rem] font-bold leading-snug text-[var(--color-ink)]">
+                    {d.name}
+                  </h3>
+                  <p className="relative mt-1.5 text-[0.9rem] leading-[1.45] text-[var(--color-ink-muted)]">
+                    {d.body}
+                  </p>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
 
           {/* Right pane — how we do it */}
-          <div className="border-t border-[var(--color-line)] pt-14 md:border-t-0 md:border-l md:pl-16 md:pt-0">
-            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-extrabold leading-[1.06] tracking-[-0.03em] text-[var(--color-ink)]">
+          <div>
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.06] tracking-[-0.015em] text-[var(--color-ink)]">
               How we work
             </h2>
 
-            <ol className="relative mt-12 flex flex-col gap-10">
-              <TimelineLine inView={inView} />
+            <div className="mt-10 flex flex-col gap-4">
               {STEPS.map((step, i) => (
-                <li key={step.n} className="relative pl-10">
-                  <TimelineDot inView={inView} delay={i * 140} />
-                  <div
-                    className="transition-all duration-700 ease-out"
-                    style={{
-                      transitionDelay: `${i * 140}ms`,
-                      opacity: inView ? 1 : 0,
-                      transform: inView ? "translateY(0)" : "translateY(0.75rem)",
-                    }}
-                  >
-                    <span className="text-[0.85rem] font-semibold tabular-nums text-[var(--color-accent-deep)]">
-                      {step.n}
-                    </span>
-                    <h3 className="mt-2 text-[1.2rem] font-bold leading-snug text-[var(--color-ink)]">
+                <div
+                  key={step.n}
+                  className={`${GLASS_CARD} flex items-baseline gap-4 p-5`}
+                  style={{
+                    transitionDelay: `${i * 110}ms`,
+                    opacity: inView ? 1 : 0,
+                    transform: inView ? "translateY(0)" : "translateY(0.75rem)",
+                  }}
+                >
+                  <span className="relative shrink-0 text-[0.8rem] font-semibold tabular-nums text-[var(--color-accent-deep)]">
+                    {step.n}
+                  </span>
+                  <div className="relative">
+                    <h3 className="text-[1.1rem] font-bold leading-snug text-[var(--color-ink)]">
                       {step.title}
                     </h3>
-                    <p className="mt-2 max-w-[38ch] text-[1rem] leading-[1.55] text-[var(--color-ink-muted)]">
+                    <p className="mt-1 text-[0.9rem] leading-[1.45] text-[var(--color-ink-muted)]">
                       {step.body}
                     </p>
                   </div>
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
         </div>
 

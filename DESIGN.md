@@ -18,15 +18,15 @@ typography:
   display:
     fontFamily: "var(--font-sans)"
     fontSize: "clamp(2.75rem, 6vw, 5.25rem)"
-    fontWeight: 800
+    fontWeight: 700
     lineHeight: 0.98
-    letterSpacing: "-0.035em"
+    letterSpacing: "-0.015em"
   headline:
     fontFamily: "var(--font-sans)"
     fontSize: "clamp(2rem, 4vw, 3.25rem)"
-    fontWeight: 800
+    fontWeight: 700
     lineHeight: 1.04
-    letterSpacing: "-0.03em"
+    letterSpacing: "-0.015em"
   title:
     fontFamily: "var(--font-sans)"
     fontSize: "1.3rem"
@@ -137,11 +137,11 @@ A warm-white editorial base with true black and a single warm-orange gradient he
 **Display Font:** Inter (variable, weights 400–800, `normal` and `italic` styles loaded via `next/font/google`), with ui-sans-serif/system-ui fallback
 **Body Font:** Inter, same stack
 
-**Character:** A confident, heavy-weight grotesque (Inter at 700–800) carries every headline and UI label; Inter's own italic (400–500) is the system's one emphasis register, used for quoted client language so it still reads as a distinct "other person's words" voice without introducing a second typeface.
+**Character:** A confident but restrained grotesque (Inter at 600–700, matching the tone of the doomsday.studio reference site rather than a heavier display weight) carries every headline and UI label; Inter's own italic (400–500) is the system's one emphasis register, used for quoted client language so it still reads as a distinct "other person's words" voice without introducing a second typeface.
 
 ### Hierarchy
-- **Display** (800, `clamp(2.75rem, 6vw, 5.25rem)`, line-height 0.98, tracking -0.035em): closing CTA headline only.
-- **Headline** (800, `clamp(2rem, 4vw, 3.25rem)`, line-height 1.04, tracking -0.03em): section headlines (problem, services, testimonials, pricing, qualification, booking explainer). Hero headline uses the same weight at a slightly tighter clamp (`clamp(2.5rem, 5.6vw, 4.75rem)`, 16ch max width) as the largest first-viewport instance.
+- **Display** (700, `clamp(2.75rem, 6vw, 5.25rem)`, line-height 0.98, tracking -0.015em): closing CTA headline only.
+- **Headline** (700, `clamp(2rem, 4vw, 3.25rem)`, line-height 1.04, tracking -0.015em): section headlines (problem, services, testimonials, pricing, qualification, booking explainer). Hero headline uses the same weight at a slightly tighter clamp (`clamp(2.5rem, 5.2vw, 4.25rem)`, 24ch max width) as the largest first-viewport instance.
 - **Title** (700, ~1.2–1.4rem, tight leading): card/step titles (service discipline names, process step titles).
 - **Body** (400, ~1–1.15rem, line-height 1.55, 65–75ch measure): paragraph copy; hero sub-paragraph is explicitly held to the 65–75ch contract measure (`max-w-[70ch]`).
 - **Label** (600, ~0.85–0.95rem, tabular-nums where numeric): step numerals (01–04), stat labels, nav links.

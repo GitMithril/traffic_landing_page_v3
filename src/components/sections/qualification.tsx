@@ -1,6 +1,9 @@
+"use client";
+
 import { Check, X } from "lucide-react";
 import FadeContent from "@/components/FadeContent";
 import { CtaButton } from "@/components/ui/cta-button";
+import { useInView } from "@/hooks/use-in-view";
 
 const FIT = [
   "Need content consistently, not once every few months",
@@ -17,17 +20,28 @@ const NOT_FIT = [
 ];
 
 export function Qualification() {
+  const { ref, inView } = useInView<HTMLDivElement>(0.2);
+
   return (
     <section className="w-full bg-[var(--color-surface)] py-24 md:py-32">
       <div className="mx-auto max-w-[90rem] px-6 md:px-10">
         <FadeContent blur duration={850} ease="power2.out" threshold={0.15}>
-          <h2 className="max-w-[16ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
+          <h2 className="max-w-[16ch] text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
             Is Doomsday right for you?
           </h2>
 
-          <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-success)]/25 bg-[var(--color-success-soft)] p-8 sm:p-10">
-              <p className="flex items-center gap-2 text-[1.05rem] font-semibold text-[var(--color-success-deep)]">
+          <div
+            ref={ref}
+            className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2"
+          >
+            <div
+              className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-success)]/25 bg-[var(--color-success-soft)] p-8 transition-all duration-700 ease-out sm:p-10"
+              style={{
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0)" : "translateY(1rem)",
+              }}
+            >
+              <p className="flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-success-deep)]">
                 <span
                   aria-hidden
                   className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-success)] text-white"
@@ -36,9 +50,17 @@ export function Qualification() {
                 </span>
                 Strong fit if you:
               </p>
-              <ul className="mt-6 flex flex-col gap-4">
-                {FIT.map((line) => (
-                  <li key={line} className="flex items-start gap-3">
+              <ul className="mt-6 flex flex-col gap-[1.125rem] border-t border-[var(--color-success)]/15 pt-6">
+                {FIT.map((line, i) => (
+                  <li
+                    key={line}
+                    className="flex items-start gap-3 transition-all duration-500 ease-out"
+                    style={{
+                      transitionDelay: `${150 + i * 90}ms`,
+                      opacity: inView ? 1 : 0,
+                      transform: inView ? "translateX(0)" : "translateX(-0.5rem)",
+                    }}
+                  >
                     <Check
                       aria-hidden
                       className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-success-deep)]"
@@ -52,8 +74,15 @@ export function Qualification() {
               </ul>
             </div>
 
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-danger)]/25 bg-[var(--color-danger-soft)] p-8 sm:p-10">
-              <p className="flex items-center gap-2 text-[1.05rem] font-semibold text-[var(--color-danger-deep)]">
+            <div
+              className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-danger)]/25 bg-[var(--color-danger-soft)] p-8 transition-all duration-700 ease-out sm:p-10"
+              style={{
+                transitionDelay: "90ms",
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0)" : "translateY(1rem)",
+              }}
+            >
+              <p className="flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-danger-deep)]">
                 <span
                   aria-hidden
                   className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-danger)] text-white"
@@ -62,9 +91,17 @@ export function Qualification() {
                 </span>
                 Not a fit if you:
               </p>
-              <ul className="mt-6 flex flex-col gap-4">
-                {NOT_FIT.map((line) => (
-                  <li key={line} className="flex items-start gap-3">
+              <ul className="mt-6 flex flex-col gap-[1.125rem] border-t border-[var(--color-danger)]/15 pt-6">
+                {NOT_FIT.map((line, i) => (
+                  <li
+                    key={line}
+                    className="flex items-start gap-3 transition-all duration-500 ease-out"
+                    style={{
+                      transitionDelay: `${240 + i * 90}ms`,
+                      opacity: inView ? 1 : 0,
+                      transform: inView ? "translateX(0)" : "translateX(-0.5rem)",
+                    }}
+                  >
                     <X
                       aria-hidden
                       className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-danger-deep)]"

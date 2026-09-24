@@ -28,7 +28,7 @@ export function BookingExplainer() {
     <section className="w-full bg-[var(--color-surface-warm)] py-24 md:py-32">
       <div className="mx-auto max-w-[90rem] px-6 md:px-10">
         <div className="max-w-2xl">
-          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
+          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
             What happens when you book?
           </h2>
           <p className="mt-6 text-[1.1rem] leading-[1.55] text-[var(--color-ink-muted)]">

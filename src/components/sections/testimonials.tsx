@@ -49,7 +49,7 @@ export function Testimonials() {
     >
       <div className="mx-auto max-w-[90rem] px-6 md:px-10">
         <FadeContent duration={700} ease="power2.out" threshold={0.2}>
-          <h2 className="max-w-[18ch] text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-[var(--color-ink)]">
+          <h2 className="max-w-[18ch] text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
             The work should feel like your brand. Not your agency&rsquo;s
             template.
           </h2>

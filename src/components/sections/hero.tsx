@@ -55,7 +55,7 @@ export function Hero() {
             For scaling founders
           </span>
 
-          <h1 className="mt-5 max-w-[24ch] text-[clamp(2.5rem,5.2vw,4.25rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-[var(--color-ink)]">
+          <h1 className="mt-5 max-w-[24ch] text-[clamp(2.5rem,5.2vw,4.25rem)] font-bold leading-[1.02] tracking-[-0.015em] text-[var(--color-ink)]">
             Stop managing 5 different people just to get one campaign out.
           </h1>
 
@@ -70,7 +70,7 @@ export function Hero() {
             </CtaButton>
 
             <div className="flex items-center gap-2.5 rounded-full bg-[var(--color-accent-deep)]/8 py-2 pr-4 pl-2.5">
-              <span className="flex h-7 items-center justify-center rounded-full bg-[var(--color-accent-deep)] px-2.5 text-[0.95rem] font-extrabold text-white">
+              <span className="flex h-7 items-center justify-center rounded-full bg-[var(--color-accent-deep)] px-2.5 text-[0.95rem] font-bold text-white">
                 3x
               </span>
               <span className="text-[0.9rem] font-semibold leading-snug text-[var(--color-ink)]">
