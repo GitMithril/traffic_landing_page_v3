@@ -65,11 +65,15 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col items-start gap-4">
-            <CtaButton href="#book" size="lg">
+            <CtaButton
+              href="#book"
+              size="lg"
+              className="max-md:w-full max-md:justify-center max-md:py-3!"
+            >
               Book a call
             </CtaButton>
 
-            <div className="flex items-center gap-2.5 rounded-full bg-[var(--color-accent-deep)]/8 py-2 pr-4 pl-2.5">
+            <div className="flex items-center gap-2.5 rounded-full bg-[var(--color-accent-deep)]/8 py-2 pr-4 pl-2.5 max-md:w-full max-md:justify-center">
               <span className="flex h-7 items-center justify-center rounded-full bg-[var(--color-accent-deep)] px-2.5 text-[0.95rem] font-bold text-white">
                 3x
               </span>
