@@ -6,7 +6,6 @@ import { Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedContent from "@/components/AnimatedContent";
-import { GlareSurface } from "@/components/ui/glare-surface";
 import { PLAN_PORTRAITS } from "@/lib/plan-portraits";
 
 interface Plan {
@@ -137,8 +136,7 @@ export function Pricing() {
 
           <div className="mt-14 grid gap-10 border-t border-[var(--color-line)] pt-14 md:mt-16 md:grid-cols-[0.85fr_1.15fr_1fr] md:gap-10 md:pt-16">
             {/* Portrait panel — real per-tier creative, sourced from Doomsday's own work */}
-            <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0A0A0A]">
-              <GlareSurface radius="1.75rem" glareColor="#ffffff" glareOpacity={0.18} />
+            <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0A0A0A] transition-transform duration-500 ease-out hover:-translate-y-1.5">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={plan.id}

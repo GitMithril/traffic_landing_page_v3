@@ -1,7 +1,6 @@
 "use client";
 
 import { useInView } from "@/hooks/use-in-view";
-import { GlareSurface } from "@/components/ui/glare-surface";
 
 const FRICTION_POINTS = [
   {
@@ -19,7 +18,7 @@ const FRICTION_POINTS = [
 ];
 
 const GLASS_CARD =
-  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out";
+  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-24px_rgba(10,10,10,0.32)]";
 
 export function Problem() {
   const { ref, inView } = useInView<HTMLDivElement>(0.2);
@@ -68,12 +67,11 @@ export function Problem() {
               key={point.title}
               className={`${GLASS_CARD} p-6`}
               style={{
-                transitionDelay: `${i * 110}ms`,
+                transitionDelay: inView ? undefined : `${i * 110}ms`,
                 opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(0.75rem)",
+                transform: inView ? undefined : "translateY(0.75rem)",
               }}
             >
-              <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
               <p className="relative text-[1.05rem] font-semibold leading-snug text-[var(--color-danger-deep)]">
                 {point.title}
               </p>

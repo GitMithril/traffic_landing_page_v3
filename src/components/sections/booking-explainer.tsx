@@ -1,7 +1,6 @@
 "use client";
 
 import { CtaButton } from "@/components/ui/cta-button";
-import { GlareSurface } from "@/components/ui/glare-surface";
 import { useInView } from "@/hooks/use-in-view";
 
 const STEPS = [
@@ -23,7 +22,7 @@ const STEPS = [
 ];
 
 const GLASS_CARD =
-  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/50 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out";
+  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/50 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-24px_rgba(10,10,10,0.32)]";
 
 export function BookingExplainer() {
   const { ref, inView } = useInView<HTMLUListElement>(0.25);
@@ -67,12 +66,11 @@ export function BookingExplainer() {
               key={step.n}
               className={`${GLASS_CARD} p-6`}
               style={{
-                transitionDelay: `${i * 130}ms`,
+                transitionDelay: inView ? undefined : `${i * 130}ms`,
                 opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(1.25rem)",
+                transform: inView ? undefined : "translateY(1.25rem)",
               }}
             >
-              <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
               <span className="relative block text-[0.9rem] font-semibold tabular-nums text-[var(--color-accent-deep)]">
                 {step.n}
               </span>

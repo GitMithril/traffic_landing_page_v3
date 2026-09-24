@@ -2,7 +2,6 @@
 
 import { useInView } from "@/hooks/use-in-view";
 import { CtaButton } from "@/components/ui/cta-button";
-import { GlareSurface } from "@/components/ui/glare-surface";
 
 const DISCIPLINES = [
   {
@@ -47,7 +46,7 @@ const STEPS = [
 ];
 
 const GLASS_CARD =
-  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/40 before:to-transparent";
+  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-24px_rgba(10,10,10,0.32)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/40 before:to-transparent";
 
 export function HowWeWork() {
   const { ref, inView } = useInView<HTMLDivElement>(0.15);
@@ -89,12 +88,11 @@ export function HowWeWork() {
                   key={d.name}
                   className={`${GLASS_CARD} p-5`}
                   style={{
-                    transitionDelay: `${i * 110}ms`,
+                    transitionDelay: inView ? undefined : `${i * 110}ms`,
                     opacity: inView ? 1 : 0,
-                    transform: inView ? "translateY(0)" : "translateY(0.75rem)",
+                    transform: inView ? undefined : "translateY(0.75rem)",
                   }}
                 >
-                  <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
                   <h3 className="relative text-[1.1rem] font-medium leading-snug text-[var(--color-ink)]">
                     {d.name}
                   </h3>
@@ -118,12 +116,11 @@ export function HowWeWork() {
                   key={step.n}
                   className={`${GLASS_CARD} flex items-baseline gap-4 p-5`}
                   style={{
-                    transitionDelay: `${i * 110}ms`,
+                    transitionDelay: inView ? undefined : `${i * 110}ms`,
                     opacity: inView ? 1 : 0,
-                    transform: inView ? "translateY(0)" : "translateY(0.75rem)",
+                    transform: inView ? undefined : "translateY(0.75rem)",
                   }}
                 >
-                  <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
                   <span className="relative shrink-0 text-[0.8rem] font-semibold tabular-nums text-[var(--color-accent-deep)]">
                     {step.n}
                   </span>

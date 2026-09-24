@@ -3,7 +3,6 @@
 import { Check, X } from "lucide-react";
 import FadeContent from "@/components/FadeContent";
 import { CtaButton } from "@/components/ui/cta-button";
-import { GlareSurface } from "@/components/ui/glare-surface";
 import { useInView } from "@/hooks/use-in-view";
 
 const FIT = [
@@ -21,7 +20,7 @@ const NOT_FIT = [
 ];
 
 const GLASS_CARD =
-  "relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out";
+  "relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-24px_rgba(10,10,10,0.32)]";
 
 export function Qualification() {
   const { ref, inView } = useInView<HTMLDivElement>(0.2);
@@ -57,10 +56,9 @@ export function Qualification() {
               className={`${GLASS_CARD} p-8 sm:p-10`}
               style={{
                 opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(1rem)",
+                transform: inView ? undefined : "translateY(1rem)",
               }}
             >
-              <GlareSurface radius="1.75rem" glareColor="#FF4400" glareOpacity={0.14} />
               <p className="relative flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-ink)]">
                 <span
                   aria-hidden
@@ -97,12 +95,11 @@ export function Qualification() {
             <div
               className={`${GLASS_CARD} p-8 sm:p-10`}
               style={{
-                transitionDelay: "90ms",
+                transitionDelay: inView ? undefined : "90ms",
                 opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(1rem)",
+                transform: inView ? undefined : "translateY(1rem)",
               }}
             >
-              <GlareSurface radius="1.75rem" glareColor="#FF4400" glareOpacity={0.14} />
               <p className="relative flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-ink)]">
                 <span
                   aria-hidden

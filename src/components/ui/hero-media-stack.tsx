@@ -12,12 +12,13 @@ interface StackCard {
   z: number;
 }
 
-// Real Doomsday stills, chosen to sit tonally against the hero's warm
-// orange/cream gradient. Static — no auto-motion, only a hover response.
+// Premium Doomsday creative pieces, chosen to sit tonally against the
+// hero's warm orange/cream gradient. Static — no auto-motion, only a
+// hover response.
 const STACK_CARDS: StackCard[] = [
-  { img: "/work/suited-couple.jpg", alt: "Wedding reception photography at golden hour", rotate: -7, x: 0, y: 4, z: 1 },
-  { img: "/work/vix-cut-resistant.jpg", alt: "Vix cut-resistant apparel product photography", rotate: 5, x: 9, y: -2, z: 2 },
-  { img: "/work/studio-lights.jpg", alt: "Behind-the-scenes studio lighting setup", rotate: -2, y: 9, x: 17, z: 3 },
+  { img: "/hero-portrait-fire.png", alt: "Dramatic cinematic portrait with warm cracked-light effect", rotate: -7, x: 0, y: 4, z: 1 },
+  { img: "/hero-content-creator.png", alt: "Content creator surrounded by social and creative energy", rotate: 5, x: 9, y: -2, z: 2 },
+  { img: "/hero-warrior.webp", alt: "Cinematic warrior portrait with ember glow", rotate: -2, y: 9, x: 17, z: 3 },
 ];
 
 export function HeroMediaStack() {
