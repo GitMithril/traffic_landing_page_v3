@@ -31,7 +31,7 @@ export function ClosingCta() {
               Create like there&rsquo;s no tomorrow.
             </h2>
 
-            <p className="mx-auto mt-6 max-w-[46ch] text-[1.1rem] leading-[1.5] text-[var(--color-ink-on-black-muted)]">
+            <p className="mx-auto mt-3 max-w-[46ch] text-[1.1rem] leading-[1.5] text-[var(--color-ink-on-black-muted)]">
               Just the people doing the thinking, making and launching the
               work.
             </p>

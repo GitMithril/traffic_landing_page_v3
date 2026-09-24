@@ -1,22 +1,14 @@
+import Image from "next/image";
 import { Quote } from "lucide-react";
 
 export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  image: string;
 }
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
-
-export function TestimonialCard({ quote, name, role }: Testimonial) {
+export function TestimonialCard({ quote, name, role, image }: Testimonial) {
   return (
     <div className="relative flex h-[24rem] w-[19rem] shrink-0 snap-start flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0A0A0A] p-7 sm:w-[21rem] sm:p-8">
       <div
@@ -34,14 +26,14 @@ export function TestimonialCard({ quote, name, role }: Testimonial) {
         className="relative h-7 w-7 shrink-0 fill-white/25 text-white/25"
         strokeWidth={0}
       />
-      <blockquote className="relative mt-4 flex-1 text-[1.1rem] font-medium italic leading-[1.4] text-white">
+      <blockquote className="relative mt-4 flex-1 text-[1.1rem] font-medium leading-[1.4] text-white">
         {quote}
       </blockquote>
 
       <div className="relative mt-6 flex items-center gap-3 border-t border-white/15 pt-5">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/25 text-xs font-semibold tracking-wide text-white">
-          {initials(name)}
-        </span>
+        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border border-white/25">
+          <Image src={image} alt={name} fill sizes="40px" className="object-cover" />
+        </div>
         <div className="flex flex-col leading-tight">
           <span className="text-[0.95rem] font-semibold text-white">{name}</span>
           <span className="text-[0.8rem] text-white/60">{role}</span>

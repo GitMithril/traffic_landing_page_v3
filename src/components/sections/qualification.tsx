@@ -19,29 +19,47 @@ const NOT_FIT = [
   "Aren’t ready to commit to a 2-month minimum",
 ];
 
+const GLASS_CARD =
+  "relative overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out";
+
 export function Qualification() {
   const { ref, inView } = useInView<HTMLDivElement>(0.2);
 
   return (
-    <section className="w-full bg-[var(--color-surface)] py-24 md:py-32">
-      <div className="mx-auto max-w-[90rem] px-6 md:px-10">
+    <section className="relative w-full overflow-hidden bg-[var(--color-surface)] py-24 md:py-32">
+      {/* Soft color glows — ambient fit/not-fit cue behind the glass, without filling the cards themselves. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-[8%] top-24 h-[26rem] w-[26rem] rounded-full opacity-40 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-success) 0%, transparent 75%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[8%] top-24 h-[26rem] w-[26rem] rounded-full opacity-35 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-danger) 0%, transparent 75%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-[90rem] px-6 md:px-10">
         <FadeContent blur duration={850} ease="power2.out" threshold={0.15}>
           <h2 className="max-w-[16ch] text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
             Is Doomsday right for you?
           </h2>
 
-          <div
-            ref={ref}
-            className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2"
-          >
+          <div ref={ref} className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2">
             <div
-              className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-success)]/25 bg-[var(--color-success-soft)] p-8 transition-all duration-700 ease-out sm:p-10"
+              className={`${GLASS_CARD} p-8 sm:p-10`}
               style={{
                 opacity: inView ? 1 : 0,
                 transform: inView ? "translateY(0)" : "translateY(1rem)",
               }}
             >
-              <p className="flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-success-deep)]">
+              <p className="flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-ink)]">
                 <span
                   aria-hidden
                   className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-success)] text-white"
@@ -50,7 +68,7 @@ export function Qualification() {
                 </span>
                 Strong fit if you:
               </p>
-              <ul className="mt-6 flex flex-col gap-[1.125rem] border-t border-[var(--color-success)]/15 pt-6">
+              <ul className="mt-6 flex flex-col gap-[1.125rem] border-t border-[var(--color-line)] pt-6">
                 {FIT.map((line, i) => (
                   <li
                     key={line}
@@ -75,14 +93,14 @@ export function Qualification() {
             </div>
 
             <div
-              className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-danger)]/25 bg-[var(--color-danger-soft)] p-8 transition-all duration-700 ease-out sm:p-10"
+              className={`${GLASS_CARD} p-8 sm:p-10`}
               style={{
                 transitionDelay: "90ms",
                 opacity: inView ? 1 : 0,
                 transform: inView ? "translateY(0)" : "translateY(1rem)",
               }}
             >
-              <p className="flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-danger-deep)]">
+              <p className="flex items-center gap-2.5 text-[1.05rem] font-semibold text-[var(--color-ink)]">
                 <span
                   aria-hidden
                   className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-danger)] text-white"
@@ -91,7 +109,7 @@ export function Qualification() {
                 </span>
                 Not a fit if you:
               </p>
-              <ul className="mt-6 flex flex-col gap-[1.125rem] border-t border-[var(--color-danger)]/15 pt-6">
+              <ul className="mt-6 flex flex-col gap-[1.125rem] border-t border-[var(--color-line)] pt-6">
                 {NOT_FIT.map((line, i) => (
                   <li
                     key={line}

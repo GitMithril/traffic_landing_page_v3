@@ -30,7 +30,7 @@ export function Problem() {
           Your creative shouldn&rsquo;t fall apart between handoffs.
         </h2>
 
-        <p className="mt-6 max-w-[52ch] text-[1.15rem] leading-[1.55] text-[var(--color-ink)]">
+        <p className="mt-3 max-w-[52ch] text-[1.15rem] leading-[1.55] text-[var(--color-ink)]">
           Most brands don&rsquo;t have a creativity problem. They have an{" "}
           <strong className="font-semibold text-[var(--color-danger-deep)]">
             execution problem

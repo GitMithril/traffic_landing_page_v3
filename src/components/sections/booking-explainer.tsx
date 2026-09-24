@@ -31,7 +31,7 @@ export function BookingExplainer() {
           <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
             What happens when you book?
           </h2>
-          <p className="mt-6 text-[1.1rem] leading-[1.55] text-[var(--color-ink-muted)]">
+          <p className="mt-3 text-[1.1rem] leading-[1.55] text-[var(--color-ink-muted)]">
             This isn&rsquo;t a generic agency pitch. We&rsquo;ll use the
             conversation to understand:
           </p>

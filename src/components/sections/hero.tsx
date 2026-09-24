@@ -59,7 +59,7 @@ export function Hero() {
             Stop managing 5 different people just to get one campaign out.
           </h1>
 
-          <p className="mt-6 max-w-[62ch] text-[1.1rem] leading-[1.55] text-[var(--color-ink)]">
+          <p className="mt-3 max-w-[62ch] text-[1.1rem] leading-[1.55] text-[var(--color-ink)]">
             One team for content, creative direction, Meta advertising and
             digital execution &mdash; connected from the first idea to launch.
           </p>

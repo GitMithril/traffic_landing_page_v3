@@ -10,18 +10,21 @@ const QUOTES: Testimonial[] = [
       "Every piece looks like it belongs to us, not to a template.",
     name: "Victor",
     role: "CEO, Vix Protection",
+    image: "/victor.avif",
   },
   {
     quote:
       "It's the first time our content actually felt intentional.",
     name: "Nick Levett",
     role: "Founder, Bespoke Events Management",
+    image: "/nick_levett.avif",
   },
   {
     quote:
       "They understood our tone before we could fully explain it ourselves.",
     name: "Tanner Perkins",
     role: "Professional Athlete",
+    image: "/tanner-perkins.avif",
   },
 ];
 
