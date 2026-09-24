@@ -1,17 +1,19 @@
-import type { ReactNode } from "react";
 import { Check, X } from "lucide-react";
 import FadeContent from "@/components/FadeContent";
+import { CtaButton } from "@/components/ui/cta-button";
 
-const FIT: ReactNode[] = [
+const FIT = [
   "Need content consistently, not once every few months",
   "Want creative and paid media working together",
   "Are tired of coordinating multiple freelancers or agencies",
   "Want a team that can take ideas through to execution",
-  <>
-    Care about how the brand looks{" "}
-    <strong className="font-semibold text-white">and</strong> how the work
-    performs
-  </>,
+];
+
+const NOT_FIT = [
+  "Just looking for the cheapest editor or media buyer",
+  "Need a one-off project with no ongoing cadence",
+  "Want to approve every creative decision yourself",
+  "Aren’t ready to commit to a 2-month minimum",
 ];
 
 export function Qualification() {
@@ -23,34 +25,26 @@ export function Qualification() {
             Is Doomsday right for you?
           </h2>
 
-          <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-[1.15fr_0.85fr] md:gap-6">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0A0A0A] p-8 sm:p-10">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 opacity-80"
-                style={{
-                  background:
-                    "radial-gradient(120% 140% at -6% -12%, #D8220C 0%, #FF4400 40%, transparent 70%)",
-                }}
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[#0A0A0A]/60"
-              />
-
-              <p className="relative text-[1.05rem] font-semibold text-white">
-                Doomsday is a strong fit if you:
+          <div className="mt-14 grid gap-6 md:mt-16 md:grid-cols-2">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-success)]/25 bg-[var(--color-success-soft)] p-8 sm:p-10">
+              <p className="flex items-center gap-2 text-[1.05rem] font-semibold text-[var(--color-success-deep)]">
+                <span
+                  aria-hidden
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-success)] text-white"
+                >
+                  <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
+                Strong fit if you:
               </p>
-              <ul className="relative mt-6 flex flex-col gap-5">
-                {FIT.map((line, i) => (
-                  <li key={i} className="group flex items-start gap-3">
-                    <span
+              <ul className="mt-6 flex flex-col gap-4">
+                {FIT.map((line) => (
+                  <li key={line} className="flex items-start gap-3">
+                    <Check
                       aria-hidden
-                      className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
-                    >
-                      <Check className="h-3.5 w-3.5" strokeWidth={2.25} />
-                    </span>
-                    <span className="text-[1.1rem] leading-[1.5] text-white/90">
+                      className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-success-deep)]"
+                      strokeWidth={2.5}
+                    />
+                    <span className="text-[1rem] leading-[1.5] text-[var(--color-ink)]">
                       {line}
                     </span>
                   </li>
@@ -58,22 +52,37 @@ export function Qualification() {
               </ul>
             </div>
 
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-line)] bg-[var(--color-surface-warm)] p-8 sm:p-10">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-ink-muted)]/10 text-[var(--color-ink-muted)]">
-                <X aria-hidden className="h-3.5 w-3.5" strokeWidth={2.25} />
-              </span>
-              <p className="mt-5 text-[1.1rem] leading-[1.5] text-[var(--color-ink-muted)]">
-                If you&rsquo;re simply looking for the cheapest editor,
-                designer or media buyer available, we&rsquo;re probably not
-                the right team.
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--color-danger)]/25 bg-[var(--color-danger-soft)] p-8 sm:p-10">
+              <p className="flex items-center gap-2 text-[1.05rem] font-semibold text-[var(--color-danger-deep)]">
+                <span
+                  aria-hidden
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-danger)] text-white"
+                >
+                  <X className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
+                Not a fit if you:
               </p>
-
-              <p className="mt-10 max-w-[36ch] text-[0.85rem] leading-[1.55] text-[var(--color-ink-muted)]">
-                That qualification is important for conversion because it
-                makes the right prospect identify themselves instead of
-                treating the page like a generic agency menu.
-              </p>
+              <ul className="mt-6 flex flex-col gap-4">
+                {NOT_FIT.map((line) => (
+                  <li key={line} className="flex items-start gap-3">
+                    <X
+                      aria-hidden
+                      className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-danger-deep)]"
+                      strokeWidth={2.5}
+                    />
+                    <span className="text-[1rem] leading-[1.5] text-[var(--color-ink)]">
+                      {line}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <CtaButton href="#book" size="lg">
+              Book a call
+            </CtaButton>
           </div>
         </FadeContent>
       </div>

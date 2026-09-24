@@ -7,17 +7,17 @@ const STEPS = [
   {
     n: "01",
     title: "What you're doing now",
-    body: "Your content, advertising, creative process and current bottlenecks.",
+    body: "Your content, advertising and current bottlenecks.",
   },
   {
     n: "02",
     title: "What's holding things back",
-    body: "Where the issue is strategy, execution, creative consistency, campaign performance or a combination.",
+    body: "Strategy, execution, consistency or performance.",
   },
   {
     n: "03",
     title: "What we'd prioritize next",
-    body: "The areas we'd address first and whether Doomsday Studios is actually the right team to do it.",
+    body: "What to fix first, and if we're the right team for it.",
   },
 ];
 
@@ -64,16 +64,13 @@ export function BookingExplainer() {
           ))}
         </ul>
 
-        <p className="mt-14 max-w-[52ch] text-[1.05rem] leading-[1.55] text-[var(--color-ink)] md:mt-16">
-          Even if we don&rsquo;t work together, you should leave with a
-          clearer idea of what needs fixing next.
-        </p>
-
-        <div className="mt-10 flex flex-col items-start gap-4">
-          <CtaButton href="#book">Book a Call</CtaButton>
-          <p className="max-w-[42ch] text-[0.9rem] leading-snug text-[var(--color-ink-muted)]">
-            Come with the brand, campaign or creative problem you want
-            solved. We&rsquo;ll start there.
+        <div className="mt-14 flex flex-col items-start gap-4 md:mt-16">
+          <CtaButton href="#book" size="lg">
+            Book a call
+          </CtaButton>
+          <p className="max-w-[46ch] text-[0.9rem] leading-snug text-[var(--color-ink-muted)]">
+            Come with the problem you want solved. Even if we&rsquo;re not a
+            fit, you&rsquo;ll leave with a clearer next step.
           </p>
         </div>
       </div>

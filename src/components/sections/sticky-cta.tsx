@@ -11,14 +11,33 @@ export function StickyCta() {
 
   useEffect(() => {
     const hero = document.getElementById("top");
-    if (!hero) return;
+    const closingCta = document.getElementById("book");
+    if (!hero || !closingCta) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
+    const heroPast = { current: false };
+    const closingReached = { current: false };
+    const update = () => setVisible(heroPast.current && !closingReached.current);
+
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        heroPast.current = !entry.isIntersecting;
+        update();
+      },
       { rootMargin: "-64px 0px 0px 0px" }
     );
-    observer.observe(hero);
-    return () => observer.disconnect();
+    const closingObserver = new IntersectionObserver(
+      ([entry]) => {
+        closingReached.current = entry.isIntersecting;
+        update();
+      },
+      { rootMargin: "0px 0px -50% 0px" }
+    );
+    heroObserver.observe(hero);
+    closingObserver.observe(closingCta);
+    return () => {
+      heroObserver.disconnect();
+      closingObserver.disconnect();
+    };
   }, []);
 
   const show = visible && !dismissed;

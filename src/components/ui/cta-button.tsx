@@ -5,6 +5,7 @@ import { GlareSurface } from "@/components/ui/glare-surface";
 type CtaButtonProps = {
   href: string;
   variant?: "solid" | "outline";
+  size?: "md" | "lg";
   className?: string;
   children: React.ReactNode;
 } & Omit<ComponentPropsWithoutRef<typeof Link>, "href" | "className">;
@@ -31,11 +32,17 @@ const ARROW = (
 export function CtaButton({
   href,
   variant = "solid",
+  size = "md",
   className = "",
   children,
   ...props
 }: CtaButtonProps) {
-  const base = `group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-6 py-3.5 text-[0.95rem] font-semibold tracking-[-0.01em] transition-[background-color,color,box-shadow,transform] duration-[340ms] ${EASE_SOFT} hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-accent)]`;
+  const base = `group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full font-semibold tracking-[-0.01em] transition-[background-color,color,box-shadow,transform] duration-[340ms] ${EASE_SOFT} hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--color-accent)]`;
+
+  const sizing =
+    size === "lg"
+      ? "px-8 py-4.5 text-[1.05rem]"
+      : "px-6 py-3.5 text-[0.95rem]";
 
   const solid =
     "bg-[var(--color-surface-black)] text-[var(--color-ink-on-black)] shadow-[0_1px_0_rgba(255,255,255,0.08)_inset,0_0_0_0_var(--color-accent),0_14px_32px_-10px_rgba(255,68,0,0)] hover:shadow-[0_1px_0_rgba(255,255,255,0.08)_inset,0_0_0_1px_var(--color-accent),0_14px_32px_-10px_rgba(255,68,0,0.5)] hover:text-white";
@@ -46,7 +53,7 @@ export function CtaButton({
   return (
     <Link
       href={href}
-      className={`${base} ${variant === "solid" ? solid : outline} ${className}`}
+      className={`${base} ${sizing} ${variant === "solid" ? solid : outline} ${className}`}
       {...props}
     >
       <GlareSurface

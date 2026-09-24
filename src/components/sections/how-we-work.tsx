@@ -6,7 +6,7 @@ import { CtaButton } from "@/components/ui/cta-button";
 const DISCIPLINES = [
   {
     name: "Content",
-    body: "Short-form video, social creative, editing, motion and graphics designed around your brand, not a template.",
+    body: "Short-form video, social creative, editing and motion built for your brand.",
   },
   {
     name: "Paid Media",
@@ -14,11 +14,11 @@ const DISCIPLINES = [
   },
   {
     name: "Brand",
-    body: "Creative direction, visual identity and campaign concepts that make the work recognizably yours.",
+    body: "Creative direction and campaign concepts that make the work recognizably yours.",
   },
   {
     name: "Web",
-    body: "Landing pages, campaign experiences and Framer builds designed to turn attention into action.",
+    body: "Landing pages and campaign experiences built to turn attention into action.",
   },
 ];
 
@@ -26,22 +26,22 @@ const STEPS = [
   {
     n: "01",
     title: "Understand",
-    body: "We start with your business, audience, offer and what you're trying to achieve.",
+    body: "We start with your business, audience and offer.",
   },
   {
     n: "02",
     title: "Create",
-    body: "Strategy, concepts, design, video and campaign assets are developed under one direction.",
+    body: "Strategy, design and assets developed under one direction.",
   },
   {
     n: "03",
     title: "Launch",
-    body: "Content gets published. Campaigns go live. The work gets into the market.",
+    body: "Content gets published. Campaigns go live.",
   },
   {
     n: "04",
     title: "Improve",
-    body: "We use performance to decide what gets tested, changed and created next.",
+    body: "Performance decides what gets tested and created next.",
   },
 ];
 
@@ -84,7 +84,7 @@ export function HowWeWork() {
     <section id="work" className="w-full bg-[var(--color-surface-warm)] py-24 md:py-32">
       <div ref={ref} className="mx-auto max-w-[90rem] px-6 md:px-10">
         <div className="grid gap-14 md:grid-cols-2 md:gap-16">
-          {/* Left pane — what we do */}
+          {/* Left pane — what you get */}
           <div>
             <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-extrabold leading-[1.06] tracking-[-0.03em] text-[var(--color-ink)]">
               Everything needed to keep your brand moving.
@@ -113,12 +113,6 @@ export function HowWeWork() {
                 </li>
               ))}
             </ol>
-
-            <div className="mt-10">
-              <CtaButton href="#pricing" variant="outline">
-                See If We&rsquo;re a Fit
-              </CtaButton>
-            </div>
           </div>
 
           {/* Right pane — how we do it */}
@@ -153,12 +147,16 @@ export function HowWeWork() {
                 </li>
               ))}
             </ol>
-
-            <p className="mt-10 max-w-[42ch] text-[1rem] leading-[1.55] text-[var(--color-ink)]">
-              No endless handoffs. No disconnected teams. No creative sitting
-              in folders for three weeks.
-            </p>
           </div>
+        </div>
+
+        <div className="mt-16 flex flex-col items-center gap-3 text-center md:mt-20">
+          <CtaButton href="#pricing" variant="outline" size="lg">
+            See If We&rsquo;re a Fit
+          </CtaButton>
+          <p className="max-w-[42ch] text-[0.9rem] leading-[1.5] text-[var(--color-ink-muted)]">
+            No endless handoffs. No disconnected teams.
+          </p>
         </div>
       </div>
     </section>

@@ -21,6 +21,14 @@
   --color-accent-deep: #d8220c;
   --color-accent-light: #f4631e;
 
+  /* Semantic states — problem/solution + fit comparison only */
+  --color-danger: #c23b2e;
+  --color-danger-deep: #9c2e23;
+  --color-danger-soft: #fdf1ef;
+  --color-success: #1f7a52;
+  --color-success-deep: #155c3d;
+  --color-success-soft: #eef8f3;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -37,6 +45,12 @@
   --color-accent: var(--color-accent);
   --color-accent-deep: var(--color-accent-deep);
   --color-accent-light: var(--color-accent-light);
+  --color-danger: var(--color-danger);
+  --color-danger-deep: var(--color-danger-deep);
+  --color-danger-soft: var(--color-danger-soft);
+  --color-success: var(--color-success);
+  --color-success-deep: var(--color-success-deep);
+  --color-success-soft: var(--color-success-soft);
   --font-sans: var(--font-sans);
 }
 
@@ -75,53 +89,43 @@ body {
   outline-offset: 3px;
 }
 
-/* Card fan carousel — sizes match the breakpoints CardFanCarousel's
-   getHeightMultiplier/getResponsiveMultiplier read from window.innerWidth. */
-.fan-layout {
-  height: 22rem;
+/* Metrics proof strip — subtle infinite marquee, duplicated content loops
+   seamlessly since the track translates exactly -50% (one full set). */
+.metrics-marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
 }
-.fan-card {
-  position: absolute;
-  width: 9.5rem;
-  height: 12.5rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 20px 45px -18px rgba(0, 0, 0, 0.55);
+.metrics-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: metrics-marquee 32s linear infinite;
 }
-@media (min-width: 480px) {
-  .fan-layout {
-    height: 26rem;
+@keyframes metrics-marquee {
+  from {
+    transform: translateX(0);
   }
-  .fan-card {
-    width: 11rem;
-    height: 14.5rem;
-  }
-}
-@media (min-width: 640px) {
-  .fan-layout {
-    height: 28rem;
-  }
-  .fan-card {
-    width: 12rem;
-    height: 16rem;
-  }
-}
-@media (min-width: 768px) {
-  .fan-layout {
-    height: 34rem;
-  }
-  .fan-card {
-    width: 13.5rem;
-    height: 18rem;
+  to {
+    transform: translateX(-50%);
   }
 }
-@media (min-width: 1024px) {
-  .fan-layout {
-    height: 38rem;
+@media (prefers-reduced-motion: reduce) {
+  .metrics-marquee-track {
+    animation: none;
   }
-  .fan-card {
-    width: 15rem;
-    height: 20rem;
+  .metrics-marquee-mask {
+    overflow-x: auto;
   }
 }
 
