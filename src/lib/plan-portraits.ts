@@ -10,7 +10,7 @@ export const PLAN_PORTRAITS: PlanPortrait[] = [
   {
     id: "essentials",
     name: "The Essentials",
-    image: "/pricing-essentials.png",
+    image: "/the_essentials.avif",
     glowFrom: "#D8220C",
     glowTo: "#FF8A4C",
   },

@@ -60,7 +60,7 @@ export function Problem() {
 
         <div
           ref={ref}
-          className="mt-12 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-3"
+          className="mt-12 grid auto-rows-fr grid-cols-1 gap-4 md:mt-14 md:grid-cols-3"
         >
           {FRICTION_POINTS.map((point, i) => (
             <div

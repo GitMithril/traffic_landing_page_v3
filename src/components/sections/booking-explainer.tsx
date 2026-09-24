@@ -59,7 +59,7 @@ export function BookingExplainer() {
 
         <ul
           ref={ref}
-          className="mt-12 grid gap-4 md:mt-14 md:grid-cols-3"
+          className="mt-12 grid auto-rows-fr gap-4 md:mt-14 md:grid-cols-3"
         >
           {STEPS.map((step, i) => (
             <li

@@ -1,8 +1,8 @@
 const STATS: { value: string; label: string }[] = [
-  { value: "42+", label: "Projects completed" },
+  { value: "1200+", label: "Projects completed" },
   { value: "7.5%", label: "Ad campaign CTR" },
-  { value: "1K+", label: "Hours of content" },
-  { value: "15M+", label: "Audience reach" },
+  { value: "10K+", label: "Hours of content" },
+  { value: "150M+", label: "Audience reach" },
   { value: "3.5x", label: "Avg. ROI delivered" },
 ];
 

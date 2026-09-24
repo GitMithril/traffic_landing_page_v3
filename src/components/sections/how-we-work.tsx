@@ -82,7 +82,7 @@ export function HowWeWork() {
               Everything needed to keep your brand moving.
             </h2>
 
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2">
               {DISCIPLINES.map((d, i) => (
                 <div
                   key={d.name}
@@ -110,7 +110,7 @@ export function HowWeWork() {
               How we work
             </h2>
 
-            <div className="mt-10 flex flex-col gap-4">
+            <div className="mt-10 grid auto-rows-fr grid-cols-1 gap-4">
               {STEPS.map((step, i) => (
                 <div
                   key={step.n}
