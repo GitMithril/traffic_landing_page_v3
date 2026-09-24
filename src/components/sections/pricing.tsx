@@ -136,7 +136,7 @@ export function Pricing() {
           </h2>
 
           <div className="mt-14 grid gap-10 border-t border-[var(--color-line)] pt-14 md:mt-16 md:grid-cols-[0.85fr_1.15fr_1fr] md:gap-10 md:pt-16">
-            {/* Portrait panel — placeholder until real per-tier imagery is supplied */}
+            {/* Portrait panel — real per-tier creative, sourced from Doomsday's own work */}
             <div className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0A0A0A]">
               <GlareSurface radius="1.75rem" glareColor="#ffffff" glareOpacity={0.18} />
               <AnimatePresence mode="wait">
@@ -148,29 +148,28 @@ export function Pricing() {
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   className="absolute inset-0"
                 >
+                  <Image
+                    src={portrait.image}
+                    alt={`Creative work representing the ${portrait.name} plan`}
+                    fill
+                    sizes="384px"
+                    className="object-cover"
+                    priority={portrait.id === "essentials"}
+                  />
                   <div
                     aria-hidden
-                    className="absolute inset-0"
+                    className="absolute inset-0 opacity-35 mix-blend-overlay"
                     style={{
                       background: `radial-gradient(120% 130% at 50% 15%, ${portrait.glowTo} 0%, ${portrait.glowFrom} 45%, transparent 78%)`,
                     }}
                   />
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-[#0A0A0A]/45"
+                    className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent"
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-                    <Image
-                      src="/doomsday-mark.png"
-                      alt=""
-                      width={56}
-                      height={68}
-                      className="h-12 w-auto opacity-70"
-                    />
-                    <p className="text-[0.8rem] font-medium tracking-[-0.01em] text-white/60">
-                      Portrait reserved for {plan.name}
-                    </p>
-                  </div>
+                  <p className="absolute inset-x-0 bottom-6 text-center text-[0.85rem] font-medium tracking-[-0.01em] text-white/85">
+                    {portrait.name}
+                  </p>
                 </motion.div>
               </AnimatePresence>
             </div>
