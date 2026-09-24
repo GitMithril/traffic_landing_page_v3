@@ -5,7 +5,7 @@ colors:
   surface: "#ffffff"
   surface-warm: "#f7f6f4"
   surface-black: "#0a0a0a"
-  ink: "#1a1a1a"
+  ink: "#2b2b2e"
   ink-muted: "#6f6d72"
   ink-on-black: "#f5f3f0"
   ink-on-black-muted: "#a9a6a3"
@@ -18,21 +18,21 @@ typography:
   display:
     fontFamily: "var(--font-sans)"
     fontSize: "clamp(2.75rem, 6vw, 5.25rem)"
-    fontWeight: 700
+    fontWeight: 500
     lineHeight: 0.98
-    letterSpacing: "-0.015em"
+    letterSpacing: "-3.5px"
   headline:
     fontFamily: "var(--font-sans)"
     fontSize: "clamp(2rem, 4vw, 3.25rem)"
-    fontWeight: 700
+    fontWeight: 500
     lineHeight: 1.04
-    letterSpacing: "-0.015em"
+    letterSpacing: "-3.5px"
   title:
     fontFamily: "var(--font-sans)"
-    fontSize: "1.3rem"
-    fontWeight: 700
+    fontSize: "1.1rem"
+    fontWeight: 500
     lineHeight: 1.3
-    letterSpacing: "-0.01em"
+    letterSpacing: "normal"
   body:
     fontFamily: "var(--font-sans)"
     fontSize: "1.05rem"
@@ -137,12 +137,12 @@ A warm-white editorial base with true black and a single warm-orange gradient he
 **Display Font:** Inter (variable, weights 400–800, `normal` and `italic` styles loaded via `next/font/google`), with ui-sans-serif/system-ui fallback
 **Body Font:** Inter, same stack
 
-**Character:** A confident but restrained grotesque (Inter at 600–700, matching the tone of the doomsday.studio reference site rather than a heavier display weight) carries every headline and UI label; Inter's own italic (400–500) is the system's one emphasis register, used for quoted client language so it still reads as a distinct "other person's words" voice without introducing a second typeface.
+**Character:** A restrained medium-weight grotesque (Inter at 500) carries every headline and card title, deliberately lighter than a bold/extrabold display voice per direct client correction; Inter's own italic (400–500) is the system's one emphasis register, used for quoted client language so it still reads as a distinct "other person's words" voice without introducing a second typeface.
 
 ### Hierarchy
-- **Display** (700, `clamp(2.75rem, 6vw, 5.25rem)`, line-height 0.98, tracking -0.015em): closing CTA headline only.
-- **Headline** (700, `clamp(2rem, 4vw, 3.25rem)`, line-height 1.04, tracking -0.015em): section headlines (problem, services, testimonials, pricing, qualification, booking explainer). Hero headline uses the same weight at a slightly tighter clamp (`clamp(2.5rem, 5.2vw, 4.25rem)`, 24ch max width) as the largest first-viewport instance.
-- **Title** (700, ~1.2–1.4rem, tight leading): card/step titles (service discipline names, process step titles).
+- **Display** (500, `clamp(2.75rem, 6vw, 5.25rem)`, line-height 0.98, tracking -3.5px): closing CTA headline only.
+- **Headline** (500, `clamp(2rem, 4vw, 3.25rem)`, line-height 1.04, tracking -3.5px): section headlines (problem, services, testimonials, pricing, qualification, booking explainer). Hero headline uses the same weight at a slightly tighter clamp (`clamp(2.5rem, 5.2vw, 4.25rem)`, 24ch max width) as the largest first-viewport instance. The -3.5px tracking is a flat pixel value (not em-scaled) — client-specified, applied only to headline/display-scale text since it would over-tighten smaller sizes.
+- **Title** (500, ~1.1–1.2rem, normal tracking): card/step titles (service discipline names, process step titles).
 - **Body** (400, ~1–1.15rem, line-height 1.55, 65–75ch measure): paragraph copy; hero sub-paragraph is explicitly held to the 65–75ch contract measure (`max-w-[70ch]`).
 - **Label** (600, ~0.85–0.95rem, tabular-nums where numeric): step numerals (01–04), stat labels, nav links.
 - **Pull-quote** (Inter, 400–500 real italic, ~1.05–1.15rem, line-height ~1.35): testimonial quotes only, always on the true-black gradient-wash card.
@@ -152,7 +152,7 @@ A warm-white editorial base with true black and a single warm-orange gradient he
 
 ## Layout
 
-Single max-width container (`max-w-[90rem]`, `px-6` mobile / `px-10` desktop) reused across every section. Sections alternate between white and warm-paper backgrounds as the only tonal separator between them — no borders or shadows mark section boundaries. Vertical rhythm is generous and consistent: `py-20`–`py-24` for compact sections (hero, metrics), `py-24`–`py-32` for content sections. Hairline horizontal or vertical rules (`border-[var(--color-line)]`) are the recurring structural device that threads sections together (metrics-bar stat dividers, services' single connecting rule, process's vertical progress line, pricing's divider, qualification's column divider) — this is the literal expression of the "unbroken line" thesis. Two/three-column splits (`md:grid-cols-[1.1fr_0.9fr]`, or pricing's `md:grid-cols-[0.85fr_1.15fr_1fr]` portrait/switcher/checklist split) appear in pricing and qualification for content/detail pairs; the services and process lists use a single continuous line with items hung off it rather than a card grid. Mobile collapses all multi-column layouts to a single stacked column with the connecting line reorienting from horizontal to vertical.
+Single max-width container (`max-w-[90rem]`, `px-6` mobile / `px-10` desktop) reused across every section. Sections alternate between white and warm-paper backgrounds as the only tonal separator between them — no borders or shadows mark section boundaries. Vertical rhythm was tightened per direct client request: `py-16`–`py-20` for most content sections (previously `py-24`–`py-32`), keeping sections closer together. Hairline horizontal or vertical rules (`border-[var(--color-line)]`) still thread the metrics-bar dividers and pricing/qualification internal rules, expressing the "unbroken line" thesis structurally; the services and process lists, the problem section's friction points, and the booking-explainer steps now use the Glass Card pattern instead of the bare connecting-line treatment (client-directed). Two/three-column splits (`md:grid-cols-[1.1fr_0.9fr]`, or pricing's `md:grid-cols-[0.85fr_1.15fr_1fr]` portrait/switcher/checklist split) appear in pricing and qualification for content/detail pairs. Mobile collapses all multi-column layouts to a single stacked column.
 
 ## Elevation & Depth
 
@@ -186,6 +186,13 @@ Two recurring silhouettes: the full pill (`rounded-full` / 999px) for every clic
 - **Internal Padding:** `1.75rem`–`2rem` depending on context (mobile/sm+).
 - **Reuse:** this is a system-level pattern, not a testimonial-only device. It appears in the testimonial quote card (fan carousel), the qualification section's "who this is for" fit card, and the pricing section's per-tier portrait panel. All three share the same visual grammar: true-black ground, top-anchored gradient wash, scrim, centered or top-aligned content. The pricing portrait panel and hero photo-marquee currently render this pattern as a *placeholder* — a centered brand mark + "Portrait reserved for {name}" label — standing in for real per-tier photography that has not been supplied yet; the underlying gradient/mark values live in one shared source (`src/lib/plan-portraits.ts`) so swapping in real images later is a single edit.
 
+### Cards / Containers — the Glass Card (signature pattern, light surfaces)
+- **Corner Style:** `1.5rem` (compact cards) or `1.75rem` (larger comparison cards), matching the Gradient-Wash Card's radius language.
+- **Background:** translucent white (`bg-white/45`–`/50`) with `backdrop-blur-xl`, a hairline white-at-70%-opacity border, and a soft offset shadow (`0 20px 45px -24px rgba(10,10,10,0.25)`).
+- **Context:** always placed over 1-2 soft, blurred brand-gradient glow shapes (`blur-3xl`, ~30-45% opacity, orange family) positioned behind the card grid so the blur has real color to refract — never placed over a flat single-color section background alone.
+- **Reuse:** the light-surface equivalent of the Gradient-Wash Card, used for every card-shaped grouping on white/warm-paper backgrounds — services and process (How We Work), the problem section's friction points, the booking-explainer steps, and the qualification fit/not-fit comparison. Qualification's fit/not-fit distinction lives only in the icon chip color (green/red) plus copy — the cards themselves and their ambient glows stay in the brand orange family, not literal green/red fills.
+- **Hover:** every card (glass or Gradient-Wash) carries a `GlareSurface` overlay — a soft diagonal light sweep on hover/focus, orange-tinted on light glass cards, white-tinted on dark true-black cards. Subtle by design (12-18% opacity); reuses the same primitive as the button hover glow.
+
 ### Inputs / Fields
 Not present in this build — the page has no form fields; all conversion actions are link-style CTAs to the booking destination.
 
@@ -210,14 +217,16 @@ Client-side 3-tier tabbed selector (The Essentials / The Amplifier / The Overdri
 - **Do** alternate white (`#ffffff`) and warm-paper (`#f7f6f4`) backgrounds section-to-section as the only separator; don't add a border or shadow at the seam.
 - **Do** run a single hairline rule or accent progress-line through any sequential/ordered list of items (services, process) rather than boxing each item in its own card.
 - **Do** hold body paragraph measure to 65–75ch.
-- **Do** use the Gradient-Wash Card pattern (true black + top-anchored brand-gradient wash + scrim, `1.75rem` radius) for any dark, high-conviction content surface — testimonials, qualification, pricing portraits, and future surfaces of the same kind — rather than a plain solid-black or bordered-only card.
-- **Do** keep the brand gradient as a field/wash/glow (hero canvas, gradient-wash cards, closing-band glow, marquee cards), never as a gradient-clipped headline.
+- **Do** use the Gradient-Wash Card pattern (true black + top-anchored brand-gradient wash + scrim, `1.75rem` radius) for any dark, high-conviction content surface — testimonials, pricing portraits, and future surfaces of the same kind — rather than a plain solid-black or bordered-only card.
+- **Do** use the Glass Card pattern (translucent white, backdrop-blur, hairline border, soft shadow, over a blurred brand-gradient glow field) for card-shaped groupings on light backgrounds — services, process, problem's friction points, booking steps, qualification — per direct client request; this superseded the earlier connecting-line-only treatment for services/process.
+- **Do** give every card (glass or gradient-wash) a subtle `GlareSurface` hover sweep, consistent with the button hover treatment.
+- **Do** keep the brand gradient as a field/wash/glow (hero canvas, gradient-wash cards, glass-card ambient glows, closing-band glow, marquee cards), never as a gradient-clipped headline.
 - **Do** gate any WebGL/animated background loop behind `prefers-reduced-motion`.
 - **Do** label placeholder imagery honestly (centered brand mark + "reserved for {name}" caption) rather than fabricating stock photography, per the pricing portrait panel and hero marquee.
+- **Do** keep card ambient glows and ring/icon accents in the brand orange family even where a section has a green/red semantic meaning (e.g. qualification) — color-code only the icon chip, not the card fill or background glow.
 
 ### Don't:
 - **Don't** use a gray eyebrow/kicker label above a headline. The one instance drafted for the hero was removed in finish review and folded into body copy; the pattern is not part of this system.
-- **Don't** add drop-shadow card scaffolding to services, process, or the light-surface qualification/pricing containers — this system separates content with tonal backgrounds and hairlines, not elevation, outside the Gradient-Wash Card family.
 - **Don't** use true black (`#0a0a0a`) as a section's resting background outside its structural placements (buttons, scrolled nav, gradient-wash cards, closing band).
-- **Don't** introduce a same-size icon-over-heading card grid for the services/discipline list; the connecting-line treatment is the confirmed replacement for the generic four-panel agency layout this build is arguing against.
 - **Don't** introduce a second typeface. Inter (including its real italic style) is the sole family; do not reach for a serif or display face for quotes, headlines, or any other register.
+- **Don't** use font-weight above 500 (medium) for headline/title-scale text, or tracking looser than `-3.5px` on that same scale — both are direct, repeated client corrections against an earlier bolder/looser pass.

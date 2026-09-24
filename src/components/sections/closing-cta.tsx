@@ -14,7 +14,7 @@ export function ClosingCta() {
     <>
       <section
         id="book"
-        className="relative isolate w-full overflow-hidden bg-[var(--color-surface-black)] pt-28 pb-24 md:pt-32 md:pb-28"
+        className="relative isolate w-full overflow-hidden bg-[var(--color-surface-black)] pt-20 pb-16 md:pt-24 md:pb-20"
       >
         <div
           aria-hidden
@@ -27,13 +27,12 @@ export function ClosingCta() {
 
         <div className="relative mx-auto max-w-[90rem] px-6 text-center md:px-10">
           <FadeContent blur duration={1000} ease="power2.out" threshold={0.2}>
-            <h2 className="mx-auto max-w-[18ch] text-[clamp(2.5rem,5.5vw,4.75rem)] font-bold leading-[0.98] tracking-[-0.015em] text-[var(--color-ink-on-black)]">
+            <h2 className="mx-auto max-w-[18ch] text-[clamp(2.5rem,5.5vw,4.75rem)] font-medium leading-[0.98] tracking-[-3.5px] text-[var(--color-ink-on-black)]">
               Create like there&rsquo;s no tomorrow.
             </h2>
 
-            <p className="mx-auto mt-3 max-w-[46ch] text-[1.1rem] leading-[1.5] text-[var(--color-ink-on-black-muted)]">
-              Just the people doing the thinking, making and launching the
-              work.
+            <p className="mx-auto mt-3 max-w-[64ch] text-[1.1rem] leading-[1.5] text-[var(--color-ink-on-black-muted)]">
+              Just the people doing the thinking, making and launching the work.
             </p>
 
             <div className="mt-10 flex justify-center">

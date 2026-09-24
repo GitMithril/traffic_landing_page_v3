@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Quote } from "lucide-react";
+import { GlareSurface } from "@/components/ui/glare-surface";
 
 export interface Testimonial {
   quote: string;
@@ -20,6 +21,7 @@ export function TestimonialCard({ quote, name, role, image }: Testimonial) {
         }}
       />
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#0A0A0A]/60" />
+      <GlareSurface radius="1.75rem" glareColor="#ffffff" glareOpacity={0.18} />
 
       <Quote
         aria-hidden

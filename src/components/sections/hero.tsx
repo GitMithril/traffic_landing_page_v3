@@ -55,7 +55,7 @@ export function Hero() {
             For scaling founders
           </span>
 
-          <h1 className="mt-5 max-w-[24ch] text-[clamp(2.5rem,5.2vw,4.25rem)] font-bold leading-[1.02] tracking-[-0.015em] text-[var(--color-ink)]">
+          <h1 className="mt-5 max-w-[24ch] text-[clamp(2.5rem,5.2vw,4.25rem)] font-medium leading-[1.02] tracking-[-3.5px] text-[var(--color-ink)]">
             Stop managing 5 different people just to get one campaign out.
           </h1>
 

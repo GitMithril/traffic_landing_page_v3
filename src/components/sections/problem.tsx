@@ -1,6 +1,7 @@
 "use client";
 
 import { useInView } from "@/hooks/use-in-view";
+import { GlareSurface } from "@/components/ui/glare-surface";
 
 const FRICTION_POINTS = [
   {
@@ -17,16 +18,36 @@ const FRICTION_POINTS = [
   },
 ];
 
+const GLASS_CARD =
+  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/45 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out";
+
 export function Problem() {
   const { ref, inView } = useInView<HTMLDivElement>(0.2);
 
   return (
-    <section className="w-full bg-[var(--color-surface)] py-24 md:py-32">
-      <div className="mx-auto max-w-[90rem] px-6 md:px-10">
+    <section className="relative w-full overflow-hidden bg-[var(--color-surface)] py-16 md:py-20">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-[10%] top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full opacity-35 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-accent) 0%, transparent 75%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[10%] top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full opacity-30 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-accent-light) 0%, transparent 75%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-[90rem] px-6 md:px-10">
         <p className="text-[0.85rem] font-bold tracking-[0.02em] text-[var(--color-danger)]">
           The problem
         </p>
-        <h2 className="mt-3 max-w-[20ch] text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
+        <h2 className="mt-3 max-w-[20ch] text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-3.5px] text-[var(--color-ink)]">
           Your creative shouldn&rsquo;t fall apart between handoffs.
         </h2>
 
@@ -40,22 +61,23 @@ export function Problem() {
 
         <div
           ref={ref}
-          className="mt-14 grid grid-cols-1 divide-y divide-[var(--color-line)] border-t border-[var(--color-line)] md:mt-16 md:grid-cols-3 md:divide-x md:divide-y-0 md:border-t-0"
+          className="mt-12 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-3"
         >
           {FRICTION_POINTS.map((point, i) => (
             <div
               key={point.title}
-              className="py-6 transition-all duration-700 ease-out md:px-8 md:py-2 md:first:pl-0 md:last:pr-0"
+              className={`${GLASS_CARD} p-6`}
               style={{
                 transitionDelay: `${i * 110}ms`,
                 opacity: inView ? 1 : 0,
                 transform: inView ? "translateY(0)" : "translateY(0.75rem)",
               }}
             >
-              <p className="text-[1.05rem] font-semibold leading-snug text-[var(--color-danger-deep)]">
+              <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
+              <p className="relative text-[1.05rem] font-semibold leading-snug text-[var(--color-danger-deep)]">
                 {point.title}
               </p>
-              <p className="mt-2 max-w-[30ch] text-[0.95rem] leading-[1.5] text-[var(--color-ink-muted)]">
+              <p className="relative mt-2 text-[0.95rem] leading-[1.5] text-[var(--color-ink-muted)]">
                 {point.body}
               </p>
             </div>

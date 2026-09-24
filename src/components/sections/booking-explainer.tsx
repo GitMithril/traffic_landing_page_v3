@@ -1,6 +1,7 @@
 "use client";
 
 import { CtaButton } from "@/components/ui/cta-button";
+import { GlareSurface } from "@/components/ui/glare-surface";
 import { useInView } from "@/hooks/use-in-view";
 
 const STEPS = [
@@ -21,14 +22,34 @@ const STEPS = [
   },
 ];
 
+const GLASS_CARD =
+  "relative overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/50 shadow-[0_20px_45px_-24px_rgba(10,10,10,0.25)] backdrop-blur-xl transition-all duration-700 ease-out";
+
 export function BookingExplainer() {
   const { ref, inView } = useInView<HTMLUListElement>(0.25);
 
   return (
-    <section className="w-full bg-[var(--color-surface-warm)] py-24 md:py-32">
-      <div className="mx-auto max-w-[90rem] px-6 md:px-10">
+    <section className="relative w-full overflow-hidden bg-[var(--color-surface-warm)] py-16 md:py-20">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-[15%] top-10 h-[24rem] w-[24rem] rounded-full opacity-35 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-accent-light) 0%, transparent 75%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[15%] bottom-0 h-[24rem] w-[24rem] rounded-full opacity-30 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, var(--color-accent) 0%, transparent 75%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-[90rem] px-6 md:px-10">
         <div className="max-w-2xl">
-          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-bold leading-[1.04] tracking-[-0.015em] text-[var(--color-ink)]">
+          <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.04] tracking-[-3.5px] text-[var(--color-ink)]">
             What happens when you book?
           </h2>
           <p className="mt-3 text-[1.1rem] leading-[1.55] text-[var(--color-ink-muted)]">
@@ -39,25 +60,26 @@ export function BookingExplainer() {
 
         <ul
           ref={ref}
-          className="mt-14 grid gap-x-10 gap-y-12 border-t border-[var(--color-line)] pt-12 md:mt-16 md:grid-cols-3 md:pt-14"
+          className="mt-12 grid gap-4 md:mt-14 md:grid-cols-3"
         >
           {STEPS.map((step, i) => (
             <li
               key={step.n}
-              className="transition-all duration-700 ease-out"
+              className={`${GLASS_CARD} p-6`}
               style={{
                 transitionDelay: `${i * 130}ms`,
                 opacity: inView ? 1 : 0,
                 transform: inView ? "translateY(0)" : "translateY(1.25rem)",
               }}
             >
-              <span className="text-[0.9rem] font-semibold tabular-nums text-[var(--color-accent-deep)]">
+              <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
+              <span className="relative block text-[0.9rem] font-semibold tabular-nums text-[var(--color-accent-deep)]">
                 {step.n}
               </span>
-              <h3 className="mt-3 text-[1.2rem] font-bold leading-snug text-[var(--color-ink)]">
+              <h3 className="relative mt-3 text-[1.2rem] font-medium leading-snug text-[var(--color-ink)]">
                 {step.title}
               </h3>
-              <p className="mt-3 text-[1rem] leading-[1.55] text-[var(--color-ink-muted)]">
+              <p className="relative mt-3 text-[1rem] leading-[1.55] text-[var(--color-ink-muted)]">
                 {step.body}
               </p>
             </li>

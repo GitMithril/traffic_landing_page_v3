@@ -2,6 +2,7 @@
 
 import { useInView } from "@/hooks/use-in-view";
 import { CtaButton } from "@/components/ui/cta-button";
+import { GlareSurface } from "@/components/ui/glare-surface";
 
 const DISCIPLINES = [
   {
@@ -54,7 +55,7 @@ export function HowWeWork() {
   return (
     <section
       id="work"
-      className="relative w-full overflow-hidden bg-[var(--color-surface-warm)] py-24 md:py-32"
+      className="relative w-full overflow-hidden bg-[var(--color-surface-warm)] py-16 md:py-20"
     >
       {/* Soft brand-gradient glow field — gives the glass cards above something to refract. */}
       <div
@@ -78,7 +79,7 @@ export function HowWeWork() {
         <div className="grid gap-14 md:grid-cols-2 md:gap-16">
           {/* Left pane — what you get */}
           <div>
-            <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.06] tracking-[-0.015em] text-[var(--color-ink)]">
+            <h2 className="max-w-[20ch] text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.06] tracking-[-3.5px] text-[var(--color-ink)]">
               Everything needed to keep your brand moving.
             </h2>
 
@@ -93,7 +94,8 @@ export function HowWeWork() {
                     transform: inView ? "translateY(0)" : "translateY(0.75rem)",
                   }}
                 >
-                  <h3 className="relative text-[1.1rem] font-bold leading-snug text-[var(--color-ink)]">
+                  <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
+                  <h3 className="relative text-[1.1rem] font-medium leading-snug text-[var(--color-ink)]">
                     {d.name}
                   </h3>
                   <p className="relative mt-1.5 text-[0.9rem] leading-[1.45] text-[var(--color-ink-muted)]">
@@ -106,7 +108,7 @@ export function HowWeWork() {
 
           {/* Right pane — how we do it */}
           <div>
-            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-bold leading-[1.06] tracking-[-0.015em] text-[var(--color-ink)]">
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.06] tracking-[-3.5px] text-[var(--color-ink)]">
               How we work
             </h2>
 
@@ -121,11 +123,12 @@ export function HowWeWork() {
                     transform: inView ? "translateY(0)" : "translateY(0.75rem)",
                   }}
                 >
+                  <GlareSurface radius="1.5rem" glareColor="#FF4400" glareOpacity={0.14} />
                   <span className="relative shrink-0 text-[0.8rem] font-semibold tabular-nums text-[var(--color-accent-deep)]">
                     {step.n}
                   </span>
                   <div className="relative">
-                    <h3 className="text-[1.1rem] font-bold leading-snug text-[var(--color-ink)]">
+                    <h3 className="text-[1.1rem] font-medium leading-snug text-[var(--color-ink)]">
                       {step.title}
                     </h3>
                     <p className="mt-1 text-[0.9rem] leading-[1.45] text-[var(--color-ink-muted)]">
