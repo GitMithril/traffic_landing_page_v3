@@ -202,8 +202,8 @@ Fixed header, transparent over the hero, filling to true-black with a color-inve
 ### Number Ticker (signature component)
 Animated count-up (`motion`/`framer-motion` spring, damping 60 / stiffness 100) triggered once each stat scrolls into view. Used only for the four metrics-bar stats; renders as `tabular-nums` inline with static prefix/suffix strings (`$`, `M+`, `K+`).
 
-### Quote Fan Carousel (signature component)
-GSAP-driven card fan: up to 7 visible cards staged in a rotation/scale/offset arc, hover-responsive (hovered card lifts and scales, neighbors push aside), paginated when more than 7 cards exist. Cards use the Gradient-Wash Card pattern with Inter italic quote text. Reserved for testimonials; the fan-staging motion (not the card shape or the italic text) is what stays unique to this component.
+### Testimonials Marquee (signature component)
+An infinite horizontal marquee of all 6 real, named client testimonials (sourced directly from doomsday.studio, each with a real profile photo), using the same duplicated-track/`translateX(-50%)` technique as the metrics-bar marquee but slower (55s) since the content is meant to be read, and pauses on hover/focus so a visitor can stop and read a card. Cards use the Gradient-Wash Card pattern with upright (non-italic) quote text and a real circular headshot in the footer, not initials. Gated behind `prefers-reduced-motion` like every other marquee.
 
 ### Photo Marquee (signature component, new)
 An infinite horizontal scrolling row of rotated placeholder photo cards (`framer-motion`, linear loop, `x: 0% → -25%`, 34s duration), masked to fade at top/bottom, positioned in the lower portion of the hero between the GradientWaves background layer and the hero text content. Cards reuse the same placeholder gradient/mark treatment as the pricing portrait panel via the shared `src/lib/plan-portraits.ts` source. An own-world component (not a reactbits/magicui import); its role is atmospheric texture behind the hero copy, not interactive content.

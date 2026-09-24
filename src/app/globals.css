@@ -92,20 +92,7 @@ body {
 /* Metrics proof strip — subtle infinite marquee, duplicated content loops
    seamlessly since the track translates exactly -50% (one full set). */
 .metrics-marquee-mask {
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
+  overflow: hidden;
 }
 .metrics-marquee-track {
   display: flex;
@@ -125,6 +112,38 @@ body {
     animation: none;
   }
   .metrics-marquee-mask {
+    overflow-x: auto;
+  }
+}
+
+/* Testimonials — same seamless infinite-marquee technique as the metrics
+   strip, slower (cards are meant to be read) and pauses on hover/focus. */
+.testimonials-marquee-mask {
+  overflow: hidden;
+}
+.testimonials-marquee-track {
+  display: flex;
+  width: max-content;
+  padding: 0 1.5rem;
+  animation: testimonials-marquee 55s linear infinite;
+}
+.testimonials-marquee-mask:hover .testimonials-marquee-track,
+.testimonials-marquee-track:focus-within {
+  animation-play-state: paused;
+}
+@keyframes testimonials-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee-track {
+    animation: none;
+  }
+  .testimonials-marquee-mask {
     overflow-x: auto;
   }
 }

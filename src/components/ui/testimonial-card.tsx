@@ -11,7 +11,7 @@ export interface Testimonial {
 
 export function TestimonialCard({ quote, name, role, image }: Testimonial) {
   return (
-    <div className="relative flex h-[24rem] w-[19rem] shrink-0 snap-start flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0A0A0A] p-7 sm:w-[21rem] sm:p-8">
+    <div className="relative flex h-[24rem] w-[19rem] shrink-0 flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0A0A0A] p-7 sm:w-[21rem] sm:p-8">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-80"

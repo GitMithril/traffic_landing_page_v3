@@ -142,7 +142,7 @@ export function HowWeWork() {
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-3 text-center md:mt-20">
-          <CtaButton href="#pricing" variant="outline" size="lg">
+          <CtaButton href="#pricing" size="lg">
             See If We&rsquo;re a Fit
           </CtaButton>
           <p className="max-w-[42ch] text-[0.9rem] leading-[1.5] text-[var(--color-ink-muted)]">
