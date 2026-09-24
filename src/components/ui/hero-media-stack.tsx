@@ -16,9 +16,9 @@ interface StackCard {
 // hero's warm orange/cream gradient. Static — no auto-motion, only a
 // hover response.
 const STACK_CARDS: StackCard[] = [
-  { img: "/hero-portrait-fire.png", alt: "Dramatic cinematic portrait with warm cracked-light effect", rotate: -7, x: 0, y: 4, z: 1 },
-  { img: "/hero-content-creator.png", alt: "Content creator surrounded by social and creative energy", rotate: 5, x: 9, y: -2, z: 2 },
-  { img: "/hero-warrior.webp", alt: "Cinematic warrior portrait with ember glow", rotate: -2, y: 9, x: 17, z: 3 },
+  { img: "/hero-bg.png", alt: "Figure sitting on a cliff at sunset beneath a glowing ring and floating islands", rotate: -7, x: 0, y: 4, z: 1 },
+  { img: "/hero-portrait-2.png", alt: "Cinematic portrait of a woman holding a glowing molten orb", rotate: 5, x: 9, y: -2, z: 2 },
+  { img: "/hero-portrait-3.png", alt: "Lone figure before a glowing fractured sphere and floating ruins", rotate: -2, y: 9, x: 17, z: 3 },
 ];
 
 export function HeroMediaStack() {
